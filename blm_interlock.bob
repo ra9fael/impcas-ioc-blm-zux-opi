@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Interlock</name>
+  <width>900</width>
+  <height>700</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Interlock status and settings</text>
+    <x>15</x>
+    <y>12</y>
+    <width>260</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SettingsTitle</name>
+    <text>Interlock settings</text>
+    <x>15</x>
+    <y>50</y>
+    <width>300</width>
+    <height>25</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Enable</name>
+    <pv_name>$(P):ILK:EN</pv_name>
+    <x>15</x>
+    <y>80</y>
+    <width>125</width>
+    <height>32</height>
+    <tooltip>$(P):ILK:EN (ILK_EN)
+
+Master enable of the interlock output. While it is off, the FPGA keeps
+evaluating the thresholds and the status bits keep updating, but no interlock
+is asserted downstream.</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Reset</name>
+    <actions>
+      <action type="write_pv">
+        <description>RESET</description>
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <pv_name>$(P):ILK:RST</pv_name>
+    <text>Reset</text>
+    <x>150</x>
+    <y>80</y>
+    <width>125</width>
+    <height>32</height>
+    <tooltip>$(actions)
+
+Clears the latched interlock. Writing 1 generates a reset pulse in the FPGA,
+which releases the interlock output and lets the history BRAMs capture the
+next event.</tooltip>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Polarity</name>
+    <pv_name>$(P):ILK:POL</pv_name>
+    <x>285</x>
+    <y>80</y>
+    <width>115</width>
+    <height>32</height>
+    <tooltip>$(P):ILK:POL (ILK_POL)
+
+Polarity of the interlock output:
+  Positive - the interlock output is not inverted.
+  Negative - the interlock output is inverted.
+
+It has to match what the downstream machine protection input expects. The
+driver writes the single polarity bit straight to the FPGA when the selection
+changes.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Positive</item>
+      <item>Negative</item>
+    </items>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Number</name>
+    <pv_name>$(P):ILK:NUM</pv_name>
+    <x>410</x>
+    <y>80</y>
+    <width>95</width>
+    <height>32</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:NUM (ILK_NUM)
+
+Interlock number reported to the FPGA interlock block, which uses it to tag
+the event in the history BRAM and in the interlock status word.</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Filter</name>
+    <pv_name>$(P):ILK:FILT_NUM</pv_name>
+    <x>515</x>
+    <y>80</y>
+    <width>95</width>
+    <height>32</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:FILT_NUM (ILK_FILT_NUM)
+
+Number of consecutive samples that have to exceed a threshold before the
+interlock is declared. Raising it makes the interlock less sensitive to
+single-sample spikes, at the cost of a slower reaction. Default 1.</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Hold</name>
+    <pv_name>$(P):ILK:HOLD_TIME</pv_name>
+    <x>620</x>
+    <y>80</y>
+    <width>95</width>
+    <height>32</height>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:HOLD_TIME (ILK_HOLD_TIME)
+
+Time the interlock output stays asserted after the condition clears, so the
+downstream system reliably sees the event even for a very short loss spike.
+Default 5000.</tooltip>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Latch</name>
+    <pv_name>$(P):ILK:LATCH_LEN</pv_name>
+    <x>725</x>
+    <y>80</y>
+    <width>120</width>
+    <height>32</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:LATCH_LEN (ILK_LATCH_LEN)
+
+Number of 10 ms samples the history BRAM keeps around an interlock event. The
+IOC waits for this many samples plus 100 ms, then reads and reorders the points
+around the lock point to build the interlock history waveforms. Default 2048
+(20.58 s wait).</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EnableLabel</name>
+    <text>Enable</text>
+    <x>15</x>
+    <y>115</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ResetLabel</name>
+    <text>Reset</text>
+    <x>150</x>
+    <y>115</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PolarityLabel</name>
+    <text>Polarity</text>
+    <x>285</x>
+    <y>115</y>
+    <width>115</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>NumberLabel</name>
+    <text>Number</text>
+    <x>410</x>
+    <y>115</y>
+    <width>95</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FilterLabel</name>
+    <text>Filter</text>
+    <x>515</x>
+    <y>115</y>
+    <width>95</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>HoldLabel</name>
+    <text>Hold time</text>
+    <x>620</x>
+    <y>115</y>
+    <width>95</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>LatchLabel</name>
+    <text>Latch length</text>
+    <x>725</x>
+    <y>115</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>InterlockWR</name>
+    <pv_name>$(P):ILK:TIME_WR_S</pv_name>
+    <x>215</x>
+    <y>145</y>
+    <width>330</width>
+    <height>28</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:TIME_WR_S (TIME_WR_S_ILK)
+
+White Rabbit timestamp latched by the FPGA at the moment the interlock fired,
+formatted as YYYY-MM-DDTHH:MM:SS.nnnnnnnnn. This is the time to use when
+correlating the event with the rest of the accelerator.</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>InterlockSYS</name>
+    <pv_name>$(P):ILK:TIME_SYS_S</pv_name>
+    <x>560</x>
+    <y>145</y>
+    <width>325</width>
+    <height>28</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):ILK:TIME_SYS_S (TIME_SYS_S_ILK)
+
+System clock timestamp at which the IOC detected the interlock edge. The
+difference to the White Rabbit event time is the detection latency of the
+IOC.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>InterlockWRLabel</name>
+    <text>White Rabbit event time</text>
+    <x>215</x>
+    <y>173</y>
+    <width>330</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>InterlockSYSLabel</name>
+    <text>IOC system detection time</text>
+    <x>560</x>
+    <y>173</y>
+    <width>325</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>TimeLabel</name>
+    <text>Interlock event time</text>
+    <x>15</x>
+    <y>145</y>
+    <width>180</width>
+    <height>28</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>GLBInterlock</name>
+    <pv_name>$(P):ILK:GLB</pv_name>
+    <x>315</x>
+    <y>12</y>
+    <width>230</width>
+    <height>28</height>
+    <off_label>GLOBAL INTERLOCK</off_label>
+    <off_color>
+      <color name="On" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_label>GLOBAL INTERLOCK</on_label>
+    <on_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <square>true</square>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>EXTInterlock</name>
+    <pv_name>$(P):ILK:EXT</pv_name>
+    <x>570</x>
+    <y>12</y>
+    <width>230</width>
+    <height>28</height>
+    <off_label>EXTERNAL INTERLOCK</off_label>
+    <off_color>
+      <color name="On" red="0" green="255" blue="0">
+      </color>
+    </off_color>
+    <on_label>EXTERNAL INTERLOCK</on_label>
+    <on_color>
+      <color name="STOP" red="255" green="0" blue="0">
+      </color>
+    </on_color>
+    <square>true</square>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>FBR</name>
+    <x>412</x>
+    <y>227</y>
+    <width>473</width>
+    <height>433</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock1</name>
+      <pv_name>$(P):CH1:FBR_ILK_STAT</pv_name>
+      <x>97</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock2</name>
+      <pv_name>$(P):CH2:FBR_ILK_STAT</pv_name>
+      <x>157</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock3</name>
+      <pv_name>$(P):CH3:FBR_ILK_STAT</pv_name>
+      <x>217</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock4</name>
+      <pv_name>$(P):CH4:FBR_ILK_STAT</pv_name>
+      <x>277</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock5</name>
+      <pv_name>$(P):CH5:FBR_ILK_STAT</pv_name>
+      <x>337</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>FBRInterlock</name>
+      <pv_name>$(P):CH0:FBR_ILK_STAT</pv_name>
+      <x>37</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit5Label</name>
+      <text>10 ms</text>
+      <x>377</x>
+      <y>2</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit4Label</name>
+      <text>1 ms</text>
+      <x>377</x>
+      <y>32</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit3Label</name>
+      <text>100 us</text>
+      <x>377</x>
+      <y>62</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit2Label</name>
+      <text>10 us</text>
+      <x>377</x>
+      <y>92</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit1Label</name>
+      <text>100 ms</text>
+      <x>377</x>
+      <y>122</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRBit0Label</name>
+      <text>ILK</text>
+      <x>377</x>
+      <y>152</y>
+      <width>55</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>ADC</name>
+    <y>227</y>
+    <width>421</width>
+    <height>433</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock</name>
+      <pv_name>$(P):CH0:ADC_ILK_STAT</pv_name>
+      <x>19</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock1</name>
+      <pv_name>$(P):CH1:ADC_ILK_STAT</pv_name>
+      <x>79</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock2</name>
+      <pv_name>$(P):CH2:ADC_ILK_STAT</pv_name>
+      <x>139</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock3</name>
+      <pv_name>$(P):CH3:ADC_ILK_STAT</pv_name>
+      <x>199</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock4</name>
+      <pv_name>$(P):CH4:ADC_ILK_STAT</pv_name>
+      <x>259</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="byte_monitor" version="2.0.0">
+      <name>ADCInterlock5</name>
+      <pv_name>$(P):CH5:ADC_ILK_STAT</pv_name>
+      <x>319</x>
+      <y>2</y>
+      <width>30</width>
+      <height>180</height>
+      <numBits>6</numBits>
+      <horizontal>false</horizontal>
+      <square>true</square>
+      <off_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning5</name>
+    <pv_name>$(P):CH5:FBR_ILK_STAT</pv_name>
+    <x>770</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning4</name>
+    <pv_name>$(P):CH4:FBR_ILK_STAT</pv_name>
+    <x>710</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning3</name>
+    <pv_name>$(P):CH3:FBR_ILK_STAT</pv_name>
+    <x>650</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning2</name>
+    <pv_name>$(P):CH2:FBR_ILK_STAT</pv_name>
+    <x>590</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning1</name>
+    <pv_name>$(P):CH1:FBR_ILK_STAT</pv_name>
+    <x>530</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning</name>
+    <pv_name>$(P):CH0:FBR_ILK_STAT</pv_name>
+    <x>470</x>
+    <y>456</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning5</name>
+    <pv_name>$(P):CH5:ADC_ILK_STAT</pv_name>
+    <x>340</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning4</name>
+    <pv_name>$(P):CH4:ADC_ILK_STAT</pv_name>
+    <x>280</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning3</name>
+    <pv_name>$(P):CH3:ADC_ILK_STAT</pv_name>
+    <x>220</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning2</name>
+    <pv_name>$(P):CH2:ADC_ILK_STAT</pv_name>
+    <x>160</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning1</name>
+    <pv_name>$(P):CH1:ADC_ILK_STAT</pv_name>
+    <x>100</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning</name>
+    <pv_name>$(P):CH0:ADC_ILK_STAT</pv_name>
+    <x>40</x>
+    <y>453</y>
+    <width>30</width>
+    <height>150</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <horizontal>false</horizontal>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH0Label</name>
+    <text>CH0</text>
+    <x>460</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH1Label</name>
+    <text>CH1</text>
+    <x>520</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH2Label</name>
+    <text>CH2</text>
+    <x>580</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH3Label</name>
+    <text>CH3</text>
+    <x>640</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH4Label</name>
+    <text>CH4</text>
+    <x>700</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRCH5Label</name>
+    <text>CH5</text>
+    <x>760</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH0Label</name>
+    <text>CH0</text>
+    <x>30</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH1Label</name>
+    <text>CH1</text>
+    <x>90</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH2Label</name>
+    <text>CH2</text>
+    <x>150</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH3Label</name>
+    <text>CH3</text>
+    <x>210</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH4Label</name>
+    <text>CH4</text>
+    <x>270</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCCH5Label</name>
+    <text>CH5</text>
+    <x>330</x>
+    <y>620</y>
+    <width>60</width>
+    <height>25</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRWarnBit4Label</name>
+    <text>10 ms</text>
+    <x>810</x>
+    <y>456</y>
+    <width>55</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRWarnBit3Label</name>
+    <text>1 ms</text>
+    <x>810</x>
+    <y>486</y>
+    <width>55</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRWarnBit2Label</name>
+    <text>100 us</text>
+    <x>810</x>
+    <y>516</y>
+    <width>55</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRWarnBit1Label</name>
+    <text>10 us</text>
+    <x>810</x>
+    <y>546</y>
+    <width>55</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRWarnBit0Label</name>
+    <text>100 ms</text>
+    <x>810</x>
+    <y>576</y>
+    <width>55</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>15</x>
+    <y>675</y>
+    <width>600</width>
+    <height>18</height>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

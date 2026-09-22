@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Calibration Coefficients</name>
+  <width>430</width>
+  <height>250</height>
+  <widget type="group" version="3.0.0">
+    <name>Coefficients</name>
+    <width>430</width>
+    <height>250</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title_1</name>
+      <text>Coefficients - CH$(CH)</text>
+      <width>250</width>
+      <height>24</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K0Label</name>
+      <text>K0 candidate (factory)</text>
+      <x>29</x>
+      <y>58</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>B0Label</name>
+      <text>B0 candidate (factory)</text>
+      <x>209</x>
+      <y>58</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K1Label</name>
+      <text>K1 candidate (field)</text>
+      <x>29</x>
+      <y>120</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>B1Label</name>
+      <text>B1 candidate (field)</text>
+      <x>209</x>
+      <y>120</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>K1</name>
+      <pv_name>$(P):CH$(CH):CALI_CALC_K1</pv_name>
+      <x>29</x>
+      <y>80</y>
+      <width>170</width>
+      <height>30</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_CALC_K1 (ADC_CALI_CH$(CH)_CALC_K1)
+
+Editable candidate K1. Measure overwrites it; manual changes take effect only
+after Apply.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ActiveLabel</name>
+      <text>Active coefficients</text>
+      <x>29</x>
+      <y>150</y>
+      <width>350</width>
+      <height>22</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>K0_RBV</name>
+      <pv_name>$(P):CH$(CH):CALI_K0</pv_name>
+      <x>29</x>
+      <y>174</y>
+      <width>80</width>
+      <height>28</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_K0 (ADC_CALI_CH$(CH)_K0)
+
+Active Factory K0 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>B0_RBV</name>
+      <pv_name>$(P):CH$(CH):CALI_B0</pv_name>
+      <x>119</x>
+      <y>174</y>
+      <width>80</width>
+      <height>28</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_B0 (ADC_CALI_CH$(CH)_B0)
+
+Active Factory B0 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>K1_RBV</name>
+      <pv_name>$(P):CH$(CH):CALI_K1</pv_name>
+      <x>209</x>
+      <y>174</y>
+      <width>80</width>
+      <height>28</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_K1 (ADC_CALI_CH$(CH)_K1)
+
+Active Field K1 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>B1_RBV</name>
+      <pv_name>$(P):CH$(CH):CALI_B1</pv_name>
+      <x>299</x>
+      <y>174</y>
+      <width>80</width>
+      <height>28</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_B1 (ADC_CALI_CH$(CH)_B1)
+
+Active Field B1 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>B1</name>
+      <pv_name>$(P):CH$(CH):CALI_CALC_B1</pv_name>
+      <x>209</x>
+      <y>80</y>
+      <width>170</width>
+      <height>30</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_CALC_B1 (ADC_CALI_CH$(CH)_CALC_B1)
+
+Editable candidate B1. Measure overwrites it; manual changes take effect only
+after Apply.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>B0</name>
+      <pv_name>$(P):CH$(CH):CALI_CALC_B0</pv_name>
+      <x>209</x>
+      <y>24</y>
+      <width>170</width>
+      <height>30</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_CALC_B0 (ADC_CALI_CH$(CH)_CALC_B0)
+
+Editable candidate B0. Measure overwrites it; manual changes take effect only
+after Apply.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>K0</name>
+      <pv_name>$(P):CH$(CH):CALI_CALC_K0</pv_name>
+      <x>29</x>
+      <y>24</y>
+      <width>170</width>
+      <height>30</height>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):CALI_CALC_K0 (ADC_CALI_CH$(CH)_CALC_K0)
+
+Editable candidate K0. Measure overwrites it; manual changes take effect only
+after Apply.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+</display>

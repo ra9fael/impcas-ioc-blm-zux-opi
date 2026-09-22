@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Measure</name>
+  <width>620</width>
+  <height>186</height>
+  <widget type="group" version="3.0.0">
+    <name>Measure</name>
+    <y>1</y>
+    <width>620</width>
+    <height>184</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Measurement windows and results - CH$(CH)</text>
+      <width>400</width>
+      <height>24</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>TX1</name>
+      <pv_name>$(P):CALI:TOP_X1</pv_name>
+      <x>8</x>
+      <y>30</y>
+      <width>140</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:TOP_X1 (ADC_CALI_TOP_X1)
+
+Start sample index of the top measurement window. The calibration state
+machine averages the rawdata samples between Top start and Top end and uses
+the result as the signal high level. Index counts raw samples in the 2000
+point rawdata buffer, so try to keep the window inside the flat top of the
+waveform. Default 400.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>TX2</name>
+      <pv_name>$(P):CALI:TOP_X2</pv_name>
+      <x>153</x>
+      <y>30</y>
+      <width>140</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:TOP_X2 (ADC_CALI_TOP_X2)
+
+End sample index of the top measurement window. Must be greater than
+Top start. Widening the window averages more noise but follows slow drift
+less accurately. Default 600.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>BX1</name>
+      <pv_name>$(P):CALI:BTM_X1</pv_name>
+      <x>298</x>
+      <y>30</y>
+      <width>140</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:BTM_X1 (ADC_CALI_BTM_X1)
+
+Start sample index of the bottom measurement window. The calibration state
+machine averages the rawdata samples between Bottom start and Bottom end and
+uses the result as the signal baseline. Default 1400.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>BX2</name>
+      <pv_name>$(P):CALI:BTM_X2</pv_name>
+      <x>443</x>
+      <y>30</y>
+      <width>140</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:BTM_X2 (ADC_CALI_BTM_X2)
+
+End sample index of the bottom measurement window. Must be greater than
+Bottom start. Default 1600.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>TX1Label</name>
+      <text>Top start</text>
+      <x>8</x>
+      <y>64</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>TX2Label</name>
+      <text>Top end</text>
+      <x>153</x>
+      <y>64</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BX1Label</name>
+      <text>Bottom start</text>
+      <x>298</x>
+      <y>64</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BX2Label</name>
+      <text>Bottom end</text>
+      <x>443</x>
+      <y>64</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Top</name>
+      <pv_name>$(P):CH$(CH):MEAS_TOP</pv_name>
+      <x>8</x>
+      <y>92</y>
+      <width>140</width>
+      <height>32</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH$(CH):MEAS_TOP (MEAS_TOP_CH$(CH))
+
+Signal level measured on channel $(CH) over the top measurement window, in
+calibrated units. Updated by the rawdata thread on every rawdata acquisition
+(about every 100 ms).</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Bottom</name>
+      <pv_name>$(P):CH$(CH):MEAS_BOTTOM</pv_name>
+      <x>153</x>
+      <y>92</y>
+      <width>140</width>
+      <height>32</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH$(CH):MEAS_BOTTOM (MEAS_BOTTOM_CH$(CH))
+
+Baseline measured on channel $(CH) over the bottom measurement window, in
+calibrated units. This is the zero reference the calibration subtracts before
+applying the gain.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PP</name>
+      <pv_name>$(P):CH$(CH):MEAS_PP</pv_name>
+      <x>298</x>
+      <y>92</y>
+      <width>140</width>
+      <height>32</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH$(CH):MEAS_PP (MEAS_PP_CH$(CH))
+
+Peak-to-peak value of channel $(CH), i.e. the largest minus the smallest
+sample of the most recent rawdata acquisition, in calibrated units. Useful to
+check the signal amplitude before running a calibration.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Base</name>
+      <pv_name>$(P):CALI:BASE</pv_name>
+      <x>443</x>
+      <y>92</y>
+      <width>140</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:BASE (ADC_CALI_BASE)
+
+Reference level in mV that the calibration drives the bottom window to. The
+measured bottom value is compared against this base to derive offset B, and
+the measured span is compared against it to derive gain K. Default 1000.0 mV.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>TopLabel</name>
+      <text>Measured top</text>
+      <x>8</x>
+      <y>126</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BottomLabel</name>
+      <text>Measured bottom</text>
+      <x>153</x>
+      <y>126</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PPLabel</name>
+      <text>Peak-to-peak</text>
+      <x>298</x>
+      <y>126</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BaseLabel</name>
+      <text>Calibration base (mV)</text>
+      <x>443</x>
+      <y>126</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+</display>

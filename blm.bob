@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM</name>
+  <macros>
+    <P>XRAY:BLM00</P>
+  </macros>
+  <width>1400</width>
+  <height>1160</height>
+  <widget type="embedded" version="2.0.0">
+    <name>Main</name>
+    <macros>
+      <P>$(P)</P>
+    </macros>
+    <file>blm_main.bob</file>
+    <width>1400</width>
+    <height>1160</height>
+    <resize>true</resize>
+  </widget>
+</display>

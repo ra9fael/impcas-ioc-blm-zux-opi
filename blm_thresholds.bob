@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Thresholds</name>
+  <width>900</width>
+  <height>500</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Thresholds - Channel $(CH)</text>
+    <x>15</x>
+    <y>10</y>
+    <width>400</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channels</name>
+    <x>417</x>
+    <y>5</y>
+    <width>466</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>C0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH0</text>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>1</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH1</text>
+      <x>72</x>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>2</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH2</text>
+      <x>144</x>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>3</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH3</text>
+      <x>216</x>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>4</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH4</text>
+      <x>288</x>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>5</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH5</text>
+      <x>360</x>
+      <width>68</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Thresholds</name>
+    <x>12</x>
+    <y>77</y>
+    <width>861</width>
+    <height>286</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Scale</name>
+      <text>Scale</text>
+      <y>35</y>
+      <width>115</width>
+      <height>28</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>S1</name>
+      <text>10 us</text>
+      <x>125</x>
+      <y>35</y>
+      <width>125</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>S2</name>
+      <text>100 us</text>
+      <x>255</x>
+      <y>35</y>
+      <width>125</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>S3</name>
+      <text>1 ms</text>
+      <x>385</x>
+      <y>35</y>
+      <width>125</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>S4</name>
+      <text>10 ms</text>
+      <x>515</x>
+      <y>35</y>
+      <width>125</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>S5</name>
+      <text>100 ms</text>
+      <x>645</x>
+      <y>35</y>
+      <width>125</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ADC</name>
+      <text>ADC</text>
+      <y>70</y>
+      <width>115</width>
+      <height>30</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A1</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_10US</pv_name>
+      <x>125</x>
+      <y>70</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A2</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_100US</pv_name>
+      <x>255</x>
+      <y>70</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A3</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_1MS</pv_name>
+      <x>385</x>
+      <y>70</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A4</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_10MS</pv_name>
+      <x>515</x>
+      <y>70</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A5</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_100MS</pv_name>
+      <x>645</x>
+      <y>70</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBR</name>
+      <text>FBR</text>
+      <y>125</y>
+      <width>115</width>
+      <height>30</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F1</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_10US</pv_name>
+      <x>125</x>
+      <y>125</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_10US (FBR_ILK_TH_CH$(CH)_10US)
+Fiber-count interlock threshold, counts. Enter a non-negative integer; scientific notation such as 1e9 is accepted. Written to the FPGA 10us window threshold.</tooltip>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F2</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_100US</pv_name>
+      <x>255</x>
+      <y>125</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_100US (FBR_ILK_TH_CH$(CH)_100US)
+Fiber-count interlock threshold, counts. Enter a non-negative integer; scientific notation such as 1e9 is accepted. Written to the FPGA 100us window threshold.</tooltip>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F3</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_1MS</pv_name>
+      <x>385</x>
+      <y>125</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_1MS (FBR_ILK_TH_CH$(CH)_1MS)
+Fiber-count interlock threshold, counts. Enter a non-negative integer; scientific notation such as 1e9 is accepted. Written to the FPGA 1ms window threshold.</tooltip>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F4</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_10MS</pv_name>
+      <x>515</x>
+      <y>125</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_10MS (FBR_ILK_TH_CH$(CH)_10MS)
+Fiber-count interlock threshold, counts. Enter a non-negative integer; scientific notation such as 1e9 is accepted. Written to the FPGA 10ms window threshold.</tooltip>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F5</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_100MS</pv_name>
+      <x>645</x>
+      <y>125</y>
+      <width>125</width>
+      <height>30</height>
+      <format>3</format>
+      <precision>6</precision>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_100MS (FBR_ILK_TH_CH$(CH)_100MS)
+Fiber-count interlock threshold, counts. Enter a non-negative integer; scientific notation such as 1e9 is accepted. Written to the FPGA 100ms window threshold.</tooltip>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>ADCWarn</name>
+      <pv_name>$(P):CH$(CH):ADC_WARN_TH</pv_name>
+      <x>125</x>
+      <y>172</y>
+      <width>255</width>
+      <height>32</height>
+      <tooltip>$(P):CH$(CH):ADC_WARN_TH (ADC_ILK_WARN_TH_CH$(CH))
+
+ADC warning level of channel $(CH), as a fraction of the interlock
+thresholds of the same channel: 50% (0), 25% (1) or 12.5% (2), default
+12.5%. The FPGA compares the calibrated integrals of this channel against
+the scaled level and raises warn_signal_&lt;scale&gt;; a warning is only an
+indication, it does not trip the interlock.
+
+Written to interlock_threshold.reg0.warning_thd_switch the moment the
+selection changes, and shared by all five time scales of this channel
+(1 us, 10 us, 100 us, 1 ms, 10 ms) at once. The driver applies no range
+check, so only these three enum values are meaningful.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>50%</item>
+        <item>25%</item>
+        <item>12.5%</item>
+      </items>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>FBRWarn</name>
+      <pv_name>$(P):CH$(CH):FBR_WARN_TH</pv_name>
+      <x>515</x>
+      <y>172</y>
+      <width>255</width>
+      <height>32</height>
+      <tooltip>$(P):CH$(CH):FBR_WARN_TH (FBR_ILK_WARN_TH_CH$(CH))
+
+Fiber count warning level of channel $(CH), as a fraction of the interlock
+thresholds of the same channel: 50% (0), 25% (1) or 12.5% (2), default
+12.5%. The FPGA compares the fiber counts of this channel against the
+scaled level and raises warn_signal_&lt;scale&gt;; a warning is only an
+indication, it does not trip the interlock.
+
+Written to interlock_threshold.reg0.warning_thd_switch the moment the
+selection changes, and shared by all five time scales of this channel
+(1 us, 10 us, 100 us, 1 ms, 10 ms) at once. The driver applies no range
+check, so only these three enum values are meaningful.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>50%</item>
+        <item>25%</item>
+        <item>12.5%</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AL</name>
+      <text>ADC warning threshold</text>
+      <x>125</x>
+      <y>204</y>
+      <width>255</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FL</name>
+      <text>FBR warning threshold</text>
+      <x>515</x>
+      <y>204</y>
+      <width>255</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>15</x>
+    <y>475</y>
+    <width>600</width>
+    <height>18</height>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

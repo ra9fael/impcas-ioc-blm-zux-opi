@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Channel</name>
+  <width>440</width>
+  <height>170</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Channel $(CH)</text>
+    <x>10</x>
+    <y>8</y>
+    <width>150</width>
+    <height>25</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>ADC</name>
+    <pv_name>$(P):CH$(CH):ADC_100MS</pv_name>
+    <x>10</x>
+    <y>48</y>
+    <width>190</width>
+    <height>28</height>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>FBR</name>
+    <pv_name>$(P):CH$(CH):FBR_CNT_100MS</pv_name>
+    <x>220</x>
+    <y>48</y>
+    <width>190</width>
+    <height>28</height>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCLabel</name>
+    <text>ADC 100 ms</text>
+    <x>10</x>
+    <y>80</y>
+    <width>190</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRLabel</name>
+    <text>FBR 100 ms</text>
+    <x>220</x>
+    <y>80</y>
+    <width>190</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>$(CH)</CH>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Open channel $(CH)</text>
+    <x>10</x>
+    <y>115</y>
+    <width>400</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCILKStatus</name>
+    <pv_name>$(P):CH$(CH):ADC_ILK_STAT</pv_name>
+    <x>180</x>
+    <y>8</y>
+    <width>24</width>
+    <height>24</height>
+    <numBits>1</numBits>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRILKStatus</name>
+    <pv_name>$(P):CH$(CH):FBR_ILK_STAT</pv_name>
+    <x>220</x>
+    <y>8</y>
+    <width>24</width>
+    <height>24</height>
+    <numBits>1</numBits>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+</display>

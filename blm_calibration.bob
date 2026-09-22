@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Calibration</name>
+  <macros>
+    <P>$(P)</P>
+    <CH>$(CH)</CH>
+  </macros>
+  <width>1090</width>
+  <height>550</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>ADC calibration and measurement</text>
+    <x>15</x>
+    <y>10</y>
+    <width>340</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Calibration channel</name>
+    <x>340</x>
+    <y>10</y>
+    <width>738</width>
+    <height>87</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>C0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH0</text>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>1</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH1</text>
+      <x>90</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>2</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH2</text>
+      <x>180</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>3</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH3</text>
+      <x>270</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>4</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH4</text>
+      <x>360</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>5</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH5</text>
+      <x>450</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Current</name>
+      <pv_name>$(P):CALI:CUR</pv_name>
+      <x>545</x>
+      <width>145</width>
+      <height>32</height>
+      <tooltip>$(P):CALI:CUR (ADC_CALI_CUR)
+
+Channel the calibration state machine acts on, CH0..CH5. This is the
+calibration target, which is independent of the channel this page is
+displaying: the CH buttons above only switch the page, they do not move the
+target. Measure / Calibrate, Save, Reload and Reset all apply to the target
+selected here, so check it before pressing Measure / Calibrate.
+
+Takes effect as soon as you pick an entry. The enum restricts the value to
+0..5; anything larger would index past the channel array in
+the rawdata acquisition task.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>CH0</item>
+        <item>CH1</item>
+        <item>CH2</item>
+        <item>CH3</item>
+        <item>CH4</item>
+        <item>CH5</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CurrentLabel</name>
+      <text>Calibration target</text>
+      <x>545</x>
+      <y>32</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Measure</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>$(CH)</CH>
+    </macros>
+    <file>blm_measure.bob</file>
+    <x>12</x>
+    <y>97</y>
+    <width>638</width>
+    <height>190</height>
+    <resize>true</resize>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Action</name>
+    <x>12</x>
+    <y>348</y>
+    <width>1066</width>
+    <height>172</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Calibration action</text>
+      <width>250</width>
+      <height>24</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>MeasureCount</name>
+      <pv_name>$(P):CALI:MEASURE_COUNT</pv_name>
+      <x>39</x>
+      <y>80</y>
+      <width>225</width>
+      <height>30</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CALI:MEASURE_COUNT (ADC_CALI_MEASURE_COUNT)
+
+Number of rawdata frames collected by Measure. Each top/bottom window rejects
+outliers using a 5x MAD rule, then the per-frame robust results are combined by
+median to calculate editable candidates. Range 1..100; default 5. Normal
+rawdata and MEAS values still use the latest frame.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>MeasureCountLabel</name>
+      <text>Measure samples</text>
+      <x>39</x>
+      <y>110</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Select</name>
+      <pv_name>$(P):CALI:SEL</pv_name>
+      <x>39</x>
+      <y>24</y>
+      <width>225</width>
+      <height>32</height>
+      <tooltip>$(P):CALI:SEL (ADC_CALI_SEL)
+
+Selects which quantity the calibration run solves for:
+  Offset B - measure the baseline over the bottom window and shift it onto
+             Calibration base, updating the offset coefficients.
+  Gain K   - measure the span and scale it so the signal matches the expected
+             amplitude, updating the gain coefficients.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Offset B</item>
+        <item>Gain K</item>
+      </items>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>BOrK</name>
+      <pv_name>$(P):CALI:B_OR_K</pv_name>
+      <x>274</x>
+      <y>24</y>
+      <width>225</width>
+      <height>32</height>
+      <tooltip>$(P):CALI:B_OR_K (ADC_CALI_B_OR_K)
+
+Selects which coefficient set the calibration run writes to:
+  Factory B - the first stage coefficients (K0, B0) that come from the factory
+              characterization of the board.
+  Field K   - the second stage coefficients (K1, B1) that are adjusted in the
+              field during maintenance.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Factory</item>
+        <item>Field</item>
+      </items>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Measure</name>
+      <actions>
+        <action type="write_pv">
+          <description>Acquire one calibration snapshot</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CALI:MEASURE</pv_name>
+      <text>Measure</text>
+      <x>509</x>
+      <y>24</y>
+      <width>110</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Acquires the configured number of fresh rawdata frames. Each top/bottom window
+uses 5x MAD outlier rejection, and the per-frame robust results are combined
+by median for candidate calculation. The latest frame remains the normal
+waveform/measurement display; active coefficients are unchanged.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Apply</name>
+      <actions>
+        <action type="write_pv">
+          <description>Apply the editable candidate coefficients</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CALI:APPLY</pv_name>
+      <text>Apply</text>
+      <x>629</x>
+      <y>24</y>
+      <width>110</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Submits the complete editable candidate coefficient set for the selected
+channel. Requires a successful Measure. Manual candidate edits do not change
+the waveform until Apply; Save is required for file persistence.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>State</name>
+      <pv_name>$(P):CALI:STATE</pv_name>
+      <x>744</x>
+      <y>24</y>
+      <width>225</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CALI:STATE (ADC_CALI_STATE)
+
+State: Idle, Measuring, Measured, Applying, Applied, or Error. Apply is valid
+only in Measured state.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SelectLabel</name>
+      <text>Calibration mode</text>
+      <x>39</x>
+      <y>58</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BOrKLabel</name>
+      <text>Coefficient set</text>
+      <x>274</x>
+      <y>58</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>TriggerLabel</name>
+      <text>Start Calibration</text>
+      <x>509</x>
+      <y>58</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>StatusLabel</name>
+      <text>State</text>
+      <x>744</x>
+      <y>58</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Error</name>
+      <pv_name>$(P):CALI:ERROR</pv_name>
+      <x>274</x>
+      <y>80</y>
+      <width>695</width>
+      <height>28</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CALI:ERROR (ADC_CALI_ERROR)
+
+Last calibration error. Empty means no error.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ErrorLabel</name>
+      <text>Error Message</text>
+      <x>509</x>
+      <y>108</y>
+      <width>225</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>File</name>
+    <x>12</x>
+    <y>275</y>
+    <width>619</width>
+    <height>73</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>Save</name>
+      <actions>
+        <action type="write_pv">
+          <description>Save coefficients to file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CALI:SAVE</pv_name>
+      <text>Save</text>
+      <x>17</x>
+      <y>1</y>
+      <width>160</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Writes the coefficients of all six channels currently held by the driver to
+the calibration coefficient file, so they survive an IOC restart. Run this
+after a successful calibration.</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reload</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reload coefficients from file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CALI:RLD</pv_name>
+      <text>Reload</text>
+      <x>216</x>
+      <y>1</y>
+      <width>160</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Discards the coefficients in the driver and reads them back from the
+calibration coefficient file. Use this to undo an unsaved calibration run.</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reset coefficients to defaults</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):CALI:RST</pv_name>
+      <text>Reset</text>
+      <x>415</x>
+      <y>1</y>
+      <width>160</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Resets the coefficients of the calibration target channel selected above
+($(P):CALI:CUR) to the identity calibration K0=1, B0=0, K1=1, B1=0. The file
+on disk is not touched until you press Save.</tooltip>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Coefficients</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>$(CH)</CH>
+    </macros>
+    <file>blm_calibration_coefficients.bob</file>
+    <x>650</x>
+    <y>97</y>
+    <width>447</width>
+    <height>250</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>15</x>
+    <y>525</y>
+    <width>600</width>
+    <height>18</height>
+    <font>
+      <font name="Default" family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

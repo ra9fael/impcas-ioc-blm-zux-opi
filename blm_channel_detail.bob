@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Channel $(CH)</name>
+  <width>1180</width>
+  <height>530</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Beam Loss Monitor | Channel $(CH)</text>
+    <x>18</x>
+    <y>12</y>
+    <width>500</width>
+    <height>34</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH0</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>0</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH0</text>
+    <x>620</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>1</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH1</text>
+    <x>688</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH2</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>2</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH2</text>
+    <x>756</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH3</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>3</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH3</text>
+    <x>824</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH4</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>4</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH4</text>
+    <x>892</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CH5</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_detail.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>5</CH>
+        </macros>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>CH5</text>
+    <x>960</x>
+    <y>14</y>
+    <width>64</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Waveforms</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>blm_channel_waveforms.bob</file>
+        <macros>
+          <P>$(P)</P>
+          <CH>$(CH)</CH>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Waveforms</text>
+    <x>1035</x>
+    <y>14</y>
+    <width>125</width>
+    <height>32</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCHeader</name>
+    <text>ADC</text>
+    <x>18</x>
+    <y>65</y>
+    <width>70</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>ADCValue</name>
+    <pv_name>$(P):CH$(CH):ADC_100MS</pv_name>
+    <x>150</x>
+    <y>62</y>
+    <width>170</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):ADC_100MS (CH$(CH)_ADC_100MS)
+
+ADC integral of channel $(CH) averaged over the last 100 ms, in calibrated
+units. This is the value the interlock compares against the ADC thresholds.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRHeader</name>
+    <text>FBR</text>
+    <x>350</x>
+    <y>65</y>
+    <width>70</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>FBRValue</name>
+    <pv_name>$(P):CH$(CH):FBR_CNT_100MS</pv_name>
+    <x>480</x>
+    <y>62</y>
+    <width>170</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>6</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):FBR_CNT_100MS (CH$(CH)_FBR_CNT_100MS)
+
+Fiber count of channel $(CH) accumulated over the last 100 ms. This is the
+value the interlock compares against the FBR thresholds.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>ADCFilter</name>
+    <pv_name>$(P):CH$(CH):ADC_FILT_TH</pv_name>
+    <x>710</x>
+    <y>62</y>
+    <width>180</width>
+    <height>34</height>
+    <show_units>true</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):ADC_FILT_TH (ADC_FILT_TH_CH$(CH))
+
+ADC filter threshold of channel $(CH), in calibrated units. Samples below
+this level are dropped before the integrals are formed, which keeps noise from
+accumulating into the longer time scales. The value is converted to raw ADC
+counts with the inverse calibration before it is written to the FPGA.</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCFilterLabel</name>
+    <text>ADC filter threshold</text>
+    <x>710</x>
+    <y>98</y>
+    <width>180</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>DACSP</name>
+    <pv_name>$(P):CH$(CH):DAC_REF_SP</pv_name>
+    <x>910</x>
+    <y>62</y>
+    <width>120</width>
+    <height>34</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):DAC_REF_SP (DAC_REF_CH$(CH))
+
+Comparator reference voltage of channel $(CH) in mV, valid range 0 to 2500 mV.
+It is written to the matching DAC80508 output over SPI as soon as the value
+changes, and sets the analog threshold the FPGA compares the input against.</tooltip>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>DACRBV</name>
+    <pv_name>$(P):CH$(CH):DAC_REF_RBV</pv_name>
+    <x>1040</x>
+    <y>62</y>
+    <width>120</width>
+    <height>34</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):DAC_REF_RBV (DAC_REF_CH$(CH)_RB)
+
+Reference voltage of channel $(CH) read back from the DAC80508, in mV. It
+follows the setpoint within one status poll interval; a persistent mismatch
+means the DAC did not accept the write.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DACSPLabel</name>
+    <text>DAC setpoint (mV)</text>
+    <x>910</x>
+    <y>98</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DACRBVLabel</name>
+    <text>DAC readback (mV)</text>
+    <x>1040</x>
+    <y>98</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Thresholds</name>
+    <x>13</x>
+    <y>130</y>
+    <width>1152</width>
+    <height>190</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>THTitle</name>
+      <text>Interlock thresholds</text>
+      <width>300</width>
+      <height>28</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ADCText</name>
+      <text>ADC (mV)</text>
+      <y>35</y>
+      <width>120</width>
+      <height>32</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FBRText</name>
+      <text>FBR (count)</text>
+      <y>95</y>
+      <width>120</width>
+      <height>32</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A1</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_10US</pv_name>
+      <x>140</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):ADC_ILK_TH_10US
+
+ADC interlock threshold of channel $(CH) over 10 us, in mV. The FPGA raises
+the interlock as soon as the 10 us integral of this channel exceeds it.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A10</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_100US</pv_name>
+      <x>295</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):ADC_ILK_TH_100US
+
+ADC interlock threshold of channel $(CH) over 100 us, in mV. Default 100.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A100</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_1MS</pv_name>
+      <x>450</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):ADC_ILK_TH_1MS
+
+ADC interlock threshold of channel $(CH) over 1 ms, in mV. Default 1000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A1m</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_10MS</pv_name>
+      <x>605</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):ADC_ILK_TH_10MS
+
+ADC interlock threshold of channel $(CH) over 10 ms, in mV. Default 10000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>A10m</name>
+      <pv_name>$(P):CH$(CH):ADC_ILK_TH_100MS</pv_name>
+      <x>760</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):ADC_ILK_TH_100MS
+
+ADC interlock threshold of channel $(CH) over 100 ms, in mV. Default 100000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>AW</name>
+      <pv_name>$(P):CH$(CH):ADC_WARN_TH</pv_name>
+      <x>915</x>
+      <y>35</y>
+      <width>145</width>
+      <height>32</height>
+      <tooltip>$(P):CH$(CH):ADC_WARN_TH (ADC_ILK_WARN_TH_CH$(CH))
+
+ADC warning level of channel $(CH), as a fraction of the interlock
+thresholds of the same channel: 50% (0), 25% (1) or 12.5% (2), default
+12.5%. Raises warn_signal_&lt;scale&gt; when exceeded; a warning is only an
+indication, it does not trip the interlock.
+
+Shared by all five time scales of this channel at once and written to
+interlock_threshold.reg0.warning_thd_switch as soon as the selection
+changes. The driver applies no range check, so only these three enum values
+are meaningful.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>50%</item>
+        <item>25%</item>
+        <item>12.5%</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>A1Label</name>
+      <text>10 us</text>
+      <x>140</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>A10Label</name>
+      <text>100 us</text>
+      <x>295</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>A100Label</name>
+      <text>1 ms</text>
+      <x>450</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>A1mLabel</name>
+      <text>10 ms</text>
+      <x>605</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>A10mLabel</name>
+      <text>100 ms</text>
+      <x>760</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AWLabel</name>
+      <text>Warning</text>
+      <x>915</x>
+      <y>68</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F1</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_10US</pv_name>
+      <x>140</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_10US
+
+Fiber count interlock threshold of channel $(CH) over 10 us. The FPGA raises
+the interlock as soon as the 10 us fiber count exceeds it.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F10</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_100US</pv_name>
+      <x>295</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_100US
+
+Fiber count interlock threshold of channel $(CH) over 100 us.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F100</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_1MS</pv_name>
+      <x>450</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_1MS
+
+Fiber count interlock threshold of channel $(CH) over 1 ms. Default 1000000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F1m</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_10MS</pv_name>
+      <x>605</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_10MS
+
+Fiber count interlock threshold of channel $(CH) over 10 ms. Default 10000000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>F10m</name>
+      <pv_name>$(P):CH$(CH):FBR_ILK_TH_100MS</pv_name>
+      <x>760</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>6</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):FBR_ILK_TH_100MS
+
+Fiber count interlock threshold of channel $(CH) over 100 ms. Default 100000.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>FW</name>
+      <pv_name>$(P):CH$(CH):FBR_WARN_TH</pv_name>
+      <x>915</x>
+      <y>95</y>
+      <width>145</width>
+      <height>32</height>
+      <tooltip>$(P):CH$(CH):FBR_WARN_TH (FBR_ILK_WARN_TH_CH$(CH))
+
+Fiber count warning level of channel $(CH), as a fraction of the interlock
+thresholds of the same channel: 50% (0), 25% (1) or 12.5% (2), default
+12.5%. Raises warn_signal_&lt;scale&gt; when exceeded; a warning is only an
+indication, it does not trip the interlock.
+
+Shared by all five time scales of this channel at once and written to
+interlock_threshold.reg0.warning_thd_switch as soon as the selection
+changes. The driver applies no range check, so only these three enum values
+are meaningful.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>50%</item>
+        <item>25%</item>
+        <item>12.5%</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>F1Label</name>
+      <text>10 us</text>
+      <x>140</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>F10Label</name>
+      <text>100 us</text>
+      <x>295</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>F100Label</name>
+      <text>1 ms</text>
+      <x>450</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>F1mLabel</name>
+      <text>10 ms</text>
+      <x>605</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>F10mLabel</name>
+      <text>100 ms</text>
+      <x>760</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>FWLabel</name>
+      <text>Warning</text>
+      <x>915</x>
+      <y>129</y>
+      <width>145</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CalibrationValues</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>$(CH)</CH>
+    </macros>
+    <file>blm_channel_calibration.bob</file>
+    <x>13</x>
+    <y>320</y>
+    <width>540</width>
+    <height>175</height>
+    <resize>true</resize>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>InterlockBits</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>$(CH)</CH>
+    </macros>
+    <file>blm_channel_interlock.bob</file>
+    <x>580</x>
+    <y>320</y>
+    <width>580</width>
+    <height>175</height>
+    <resize>true</resize>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCStatus</name>
+    <pv_name>$(P):CH$(CH):ADC_ILK_STAT</pv_name>
+    <x>98</x>
+    <y>65</y>
+    <width>28</width>
+    <height>28</height>
+    <numBits>1</numBits>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRStatus</name>
+    <pv_name>$(P):CH$(CH):FBR_ILK_STAT</pv_name>
+    <x>430</x>
+    <y>65</y>
+    <width>28</width>
+    <height>28</height>
+    <numBits>1</numBits>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>13</x>
+    <y>510</y>
+    <width>500</width>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

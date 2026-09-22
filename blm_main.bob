@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Main</name>
+  <macros>
+    <P>$(P)</P>
+  </macros>
+  <width>1400</width>
+  <height>1160</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Beam Loss Monitor: $(P)</text>
+    <width>1390</width>
+    <height>35</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Navigation</name>
+    <x>5</x>
+    <y>28</y>
+    <width>740</width>
+    <height>87</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>Interlock</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_interlock.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Interlock</text>
+      <width>105</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Realtime</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Realtime</text>
+      <x>115</x>
+      <width>105</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Rawdata</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Rawdata</text>
+      <x>230</x>
+      <width>105</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Thresholds</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_thresholds.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Thresholds</text>
+      <x>345</x>
+      <width>110</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Calibration</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_calibration.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Calibration</text>
+      <x>472</x>
+      <width>105</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>System</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_system.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>System</text>
+      <x>592</x>
+      <width>105</width>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>QuickInterlock</name>
+    <x>735</x>
+    <y>28</y>
+    <width>660</width>
+    <height>87</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <widget type="bool_button" version="2.0.0">
+      <name>Enable</name>
+      <pv_name>$(P):ILK:EN</pv_name>
+      <width>130</width>
+      <height>32</height>
+      <off_label>Enable</off_label>
+      <on_label>Enabled</on_label>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset</name>
+      <actions>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):ILK:RST</pv_name>
+      <text>Reset interlock</text>
+      <x>140</x>
+      <width>140</width>
+      <height>32</height>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>GLBInterlock</name>
+      <pv_name>$(P):ILK:GLB</pv_name>
+      <x>292</x>
+      <width>155</width>
+      <height>32</height>
+      <off_label>GLOBAL INTERLOCK</off_label>
+      <off_color>
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>GLOBAL INTERLOCK</on_label>
+      <on_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <square>true</square>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>EXTInterlock</name>
+      <pv_name>$(P):ILK:EXT</pv_name>
+      <x>447</x>
+      <width>170</width>
+      <height>32</height>
+      <off_label>EXTERNAL INTERLOCK</off_label>
+      <off_color>
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>EXTERNAL INTERLOCK</on_label>
+      <on_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <square>true</square>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Channels</name>
+    <macros>
+      <P>$(P)</P>
+    </macros>
+    <file>blm_channels.bob</file>
+    <x>20</x>
+    <y>110</y>
+    <width>1360</width>
+    <height>490</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>SystemSummary</name>
+    <macros>
+      <P>$(P)</P>
+      <COMPACT>true</COMPACT>
+    </macros>
+    <file>blm_system.bob</file>
+    <x>20</x>
+    <y>630</y>
+    <width>1360</width>
+    <height>510</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>20</x>
+    <y>1140</y>
+    <width>600</width>
+    <height>18</height>
+    <font>
+      <font name="Default" family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

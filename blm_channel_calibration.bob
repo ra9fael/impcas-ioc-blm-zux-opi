@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Channel calibration $(CH)</name>
+  <width>540</width>
+  <height>185</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Measurement and calibration - CH$(CH)</text>
+    <x>8</x>
+    <y>5</y>
+    <width>400</width>
+    <height>25</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Top</name>
+    <pv_name>$(P):CH$(CH):MEAS_TOP</pv_name>
+    <x>8</x>
+    <y>38</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):MEAS_TOP (MEAS_TOP_CH$(CH))
+
+Signal level of channel $(CH) averaged over the top measurement window, in
+calibrated units. Updated by the rawdata thread on every acquisition.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Bottom</name>
+    <pv_name>$(P):CH$(CH):MEAS_BOTTOM</pv_name>
+    <x>140</x>
+    <y>38</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):MEAS_BOTTOM (MEAS_BOTTOM_CH$(CH))
+
+Baseline of channel $(CH) averaged over the bottom measurement window, in
+calibrated units. This is the zero reference a calibration run shifts onto the
+calibration base.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>PP</name>
+    <pv_name>$(P):CH$(CH):MEAS_PP</pv_name>
+    <x>272</x>
+    <y>38</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):MEAS_PP (MEAS_PP_CH$(CH))
+
+Peak-to-peak amplitude of the most recent rawdata acquisition of channel
+$(CH), in calibrated units. Compare it with the interlock thresholds before
+changing the calibration.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>TopLabel</name>
+    <text>Top</text>
+    <x>8</x>
+    <y>66</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>BottomLabel</name>
+    <text>Bottom</text>
+    <x>140</x>
+    <y>66</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PPLabel</name>
+    <text>Peak-to-peak</text>
+    <x>272</x>
+    <y>66</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>K0</name>
+    <pv_name>$(P):CH$(CH):CALI_CALC_K0</pv_name>
+    <x>8</x>
+    <y>95</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):CALI_CALC_K0 (ADC_CALI_CH$(CH)_CALC_K0)
+
+Editable candidate K0 for channel $(CH). Manual changes affect the waveform
+only after Apply. Measure overwrites this candidate. Default 1.0.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>B0</name>
+    <pv_name>$(P):CH$(CH):CALI_CALC_B0</pv_name>
+    <x>140</x>
+    <y>95</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):CALI_CALC_B0 (ADC_CALI_CH$(CH)_CALC_B0)
+
+Editable candidate B0 for channel $(CH). Manual changes affect the waveform
+only after Apply. Measure overwrites this candidate. Default 0.0.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>K1</name>
+    <pv_name>$(P):CH$(CH):CALI_CALC_K1</pv_name>
+    <x>272</x>
+    <y>95</y>
+    <width>125</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):CALI_CALC_K1 (ADC_CALI_CH$(CH)_CALC_K1)
+
+Editable candidate K1 for channel $(CH). Manual changes affect the waveform
+only after Apply. Measure overwrites this candidate. Default 1.0.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>B1</name>
+    <pv_name>$(P):CH$(CH):CALI_CALC_B1</pv_name>
+    <x>404</x>
+    <y>95</y>
+    <width>124</width>
+    <height>27</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):CALI_CALC_B1 (ADC_CALI_CH$(CH)_CALC_B1)
+
+Editable candidate B1 for channel $(CH). Manual changes affect the waveform
+only after Apply. Measure overwrites this candidate. Default 0.0.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>K0Label</name>
+    <text>K0 gain</text>
+    <x>8</x>
+    <y>123</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>B0Label</name>
+    <text>B0 offset</text>
+    <x>140</x>
+    <y>123</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>K1Label</name>
+    <text>K1 gain</text>
+    <x>272</x>
+    <y>123</y>
+    <width>125</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>B1Label</name>
+    <text>B1 offset</text>
+    <x>404</x>
+    <y>123</y>
+    <width>124</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>

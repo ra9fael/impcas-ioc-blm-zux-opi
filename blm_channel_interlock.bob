@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Interlock bits $(CH)</name>
+  <width>580</width>
+  <height>175</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Interlock bits: channel $(CH)</text>
+    <x>8</x>
+    <y>5</y>
+    <width>250</width>
+    <height>25</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCInterlock</name>
+    <pv_name>$(P):CH$(CH):ADC_ILK_STAT</pv_name>
+    <x>12</x>
+    <y>38</y>
+    <width>240</width>
+    <height>34</height>
+    <numBits>6</numBits>
+    <square>true</square>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+    <tooltip>$(P):CH$(CH):ADC_ILK_STAT - interlock bits 0..5, left to right:
+
+  bit 0  channel interlock, set when any time scale tripped
+  bit 1  interlock signal 100 ms
+  bit 2  interlock signal 10 us
+  bit 3  interlock signal 100 us
+  bit 4  interlock signal 1 ms
+  bit 5  interlock signal 10 ms
+
+Red means the bit is clear, green means the interlock condition is present.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>ADCWarning</name>
+    <pv_name>$(P):CH$(CH):ADC_ILK_STAT</pv_name>
+    <x>12</x>
+    <y>92</y>
+    <width>200</width>
+    <height>34</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <tooltip>$(P):CH$(CH):ADC_ILK_STAT - warning bits 6..10, left to right:
+
+  bit 6   warning signal 100 ms
+  bit 7   warning signal 10 us
+  bit 8   warning signal 100 us
+  bit 9   warning signal 1 ms
+  bit 10  warning signal 10 ms
+  bit 11  unused
+
+Orange means the warning threshold of that time scale was exceeded.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRInterlock</name>
+    <pv_name>$(P):CH$(CH):FBR_ILK_STAT</pv_name>
+    <x>290</x>
+    <y>38</y>
+    <width>240</width>
+    <height>34</height>
+    <numBits>6</numBits>
+    <square>true</square>
+    <off_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </off_color>
+    <tooltip>$(P):CH$(CH):FBR_ILK_STAT - interlock bits 0..5, left to right:
+
+  bit 0  channel interlock, set when any time scale tripped
+  bit 1  interlock signal 100 ms
+  bit 2  interlock signal 10 us
+  bit 3  interlock signal 100 us
+  bit 4  interlock signal 1 ms
+  bit 5  interlock signal 10 ms
+
+Red means the bit is clear, green means the interlock condition is present.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="byte_monitor" version="2.0.0">
+    <name>FBRWarning</name>
+    <pv_name>$(P):CH$(CH):FBR_ILK_STAT</pv_name>
+    <x>290</x>
+    <y>92</y>
+    <width>200</width>
+    <height>34</height>
+    <startBit>6</startBit>
+    <numBits>5</numBits>
+    <square>true</square>
+    <off_color>
+      <color name="MINOR" red="255" green="128" blue="0">
+      </color>
+    </off_color>
+    <tooltip>$(P):CH$(CH):FBR_ILK_STAT - warning bits 6..10, left to right:
+
+  bit 6   warning signal 100 ms
+  bit 7   warning signal 10 us
+  bit 8   warning signal 100 us
+  bit 9   warning signal 1 ms
+  bit 10  warning signal 10 ms
+  bit 11  unused
+
+Orange means the warning threshold of that time scale was exceeded.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB0</name>
+    <text>ILK</text>
+    <x>222</x>
+    <y>72</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB1</name>
+    <text>100 ms</text>
+    <x>170</x>
+    <y>72</y>
+    <width>58</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB2</name>
+    <text>10 us</text>
+    <x>133</x>
+    <y>72</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB3</name>
+    <text>100 us</text>
+    <x>84</x>
+    <y>72</y>
+    <width>56</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB4</name>
+    <text>1 ms</text>
+    <x>43</x>
+    <y>72</y>
+    <width>58</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AIB5</name>
+    <text>10 ms</text>
+    <x>12</x>
+    <y>72</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AWB0</name>
+    <text>100 ms</text>
+    <x>172</x>
+    <y>128</y>
+    <width>58</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AWB1</name>
+    <text>10 us</text>
+    <x>134</x>
+    <y>128</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AWB2</name>
+    <text>100 us</text>
+    <x>84</x>
+    <y>128</y>
+    <width>56</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AWB3</name>
+    <text>1 ms</text>
+    <x>43</x>
+    <y>128</y>
+    <width>58</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AWB4</name>
+    <text>10 ms</text>
+    <x>10</x>
+    <y>128</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB0</name>
+    <text>ILK</text>
+    <x>501</x>
+    <y>72</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB1</name>
+    <text>100 ms</text>
+    <x>450</x>
+    <y>72</y>
+    <width>50</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB2</name>
+    <text>10 us</text>
+    <x>412</x>
+    <y>72</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB3</name>
+    <text>100 us</text>
+    <x>370</x>
+    <y>72</y>
+    <width>44</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB4</name>
+    <text>1 ms</text>
+    <x>320</x>
+    <y>72</y>
+    <width>60</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FIB5</name>
+    <text>10 ms</text>
+    <x>290</x>
+    <y>71</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FWB0</name>
+    <text>100 ms</text>
+    <x>450</x>
+    <y>126</y>
+    <width>50</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FWB1</name>
+    <text>10 us</text>
+    <x>410</x>
+    <y>126</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FWB2</name>
+    <text>100 us</text>
+    <x>362</x>
+    <y>126</y>
+    <width>56</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FWB3</name>
+    <text>1 ms</text>
+    <x>325</x>
+    <y>126</y>
+    <width>50</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FWB4</name>
+    <text>10 ms</text>
+    <x>290</x>
+    <y>126</y>
+    <width>40</width>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ADCLabel</name>
+    <text>ADC</text>
+    <x>52</x>
+    <y>148</y>
+    <width>120</width>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FBRLabel</name>
+    <text>FBR</text>
+    <x>330</x>
+    <y>146</y>
+    <width>120</width>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

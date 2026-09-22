@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Realtime</name>
+  <width>1200</width>
+  <height>780</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Realtime data - CH$(CH) - $(SCALE)</text>
+    <x>15</x>
+    <y>10</y>
+    <width>550</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channels</name>
+    <x>597</x>
+    <y>37</y>
+    <width>576</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>C0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH0</text>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>1</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH1</text>
+      <x>90</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>2</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH2</text>
+      <x>180</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>3</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH3</text>
+      <x>270</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>4</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH4</text>
+      <x>360</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>5</CH>
+            <SCALE>$(SCALE)</SCALE>
+            <DP>$(DP)</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH5</text>
+      <x>450</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Scales</name>
+    <x>12</x>
+    <y>37</y>
+    <width>556</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>S1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>10US</SCALE>
+            <DP></DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>10 us</text>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>S2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>1MS</SCALE>
+            <DP>_3000DP</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>1 ms</text>
+      <x>110</x>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>S3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>10MS</SCALE>
+            <DP>_3000DP</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>10 ms</text>
+      <x>220</x>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>S4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_realtime.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>100MS</SCALE>
+            <DP>_3000DP</DP>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>100 ms</text>
+      <x>330</x>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>ADC</name>
+    <x>12</x>
+    <y>130</y>
+    <width>1160</width>
+    <title>ADC realtime $(SCALE)</title>
+    <show_toolbar>true</show_toolbar>
+    <x_axis>
+      <title>X</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>ADC</name>
+        <x_pv></x_pv>
+        <y_pv>$(P):CH$(CH):ADC_RT_$(SCALE)$(DP)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>FBR</name>
+    <x>15</x>
+    <y>460</y>
+    <width>1160</width>
+    <title>FBR realtime $(SCALE)</title>
+    <show_toolbar>true</show_toolbar>
+    <x_axis>
+      <title>X</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>FBR</name>
+        <x_pv></x_pv>
+        <y_pv>$(P):CH$(CH):FBR_RT_$(SCALE)$(DP)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>15</x>
+    <y>760</y>
+    <width>600</width>
+    <height>18</height>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Channels</name>
+  <width>1360</width>
+  <height>490</height>
+  <widget type="label" version="2.0.0">
+    <name>Header</name>
+    <text>Channel overview</text>
+    <x>10</x>
+    <y>8</y>
+    <width>300</width>
+    <height>28</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH0</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>0</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>10</x>
+    <y>45</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH1</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>1</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>460</x>
+    <y>45</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH2</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>2</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>910</x>
+    <y>45</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH3</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>3</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>10</x>
+    <y>275</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH4</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>4</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>460</x>
+    <y>275</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>CH5</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>5</CH>
+    </macros>
+    <file>blm_channel.bob</file>
+    <x>910</x>
+    <y>275</y>
+    <width>440</width>
+    <height>170</height>
+    <resize>true</resize>
+    <border_width>1</border_width>
+  </widget>
+</display>

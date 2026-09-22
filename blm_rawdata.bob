@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM Rawdata</name>
+  <width>1250</width>
+  <height>820</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Rawdata acquisition - CH$(CH)</text>
+    <x>15</x>
+    <y>10</y>
+    <width>400</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Trigger</name>
+    <x>12</x>
+    <y>37</y>
+    <width>588</width>
+    <height>183</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Trigger configuration</text>
+      <width>250</width>
+      <height>24</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Mode</name>
+      <pv_name>$(P):RAW:TRIG_MODE</pv_name>
+      <y>30</y>
+      <width>175</width>
+      <height>32</height>
+      <tooltip>$(P):RAW:TRIG_MODE (RAW_TRIG_MODE)
+
+Selects what starts a rawdata acquisition:
+  Internal - the FPGA captures on its own internal timing, no external signal
+             is required.
+  External - the capture waits for the external trigger input.
+  Self     - the capture fires when the channel selected in Self channel
+             crosses Self threshold, so a single shot is taken without any
+             external hardware.
+
+Written to the FPGA immediately on selection.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Internal</item>
+        <item>External</item>
+        <item>Self</item>
+      </items>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Threshold</name>
+      <pv_name>$(P):RAW:SELF_TRIG_TH</pv_name>
+      <x>185</x>
+      <y>30</y>
+      <width>175</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):RAW:SELF_TRIG_TH (RAW_SELF_TRIG_TH)
+
+Signal level the self trigger compares against, in calibrated units. The value
+is converted back to raw ADC counts with the inverse calibration of the
+selected self-trigger channel before it is written to the FPGA, so it stays
+valid after recalibration. Only used when Trigger mode is Self.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Channel</name>
+      <pv_name>$(P):RAW:SELF_TRIG_CH</pv_name>
+      <x>370</x>
+      <y>30</y>
+      <width>175</width>
+      <height>32</height>
+      <tooltip>$(P):RAW:SELF_TRIG_CH (RAW_SELF_TRIG_CH)
+
+Channel 0..5 whose signal the self trigger watches, and whose calibration is
+used to convert Self threshold from calibrated units back into raw ADC
+counts. Only used when Trigger mode is Self.
+
+The enum restricts the value to 0..5: the driver uses it directly as an index
+into the per-channel calibration arrays, so an out-of-range value would read
+past the end of those arrays.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>CH0</item>
+        <item>CH1</item>
+        <item>CH2</item>
+        <item>CH3</item>
+        <item>CH4</item>
+        <item>CH5</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ModeLabel</name>
+      <text>Trigger mode</text>
+      <y>64</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ThresholdLabel</name>
+      <text>Self threshold</text>
+      <x>185</x>
+      <y>64</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ChannelLabel</name>
+      <text>Self channel</text>
+      <x>370</x>
+      <y>64</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Decimation</name>
+      <pv_name>$(P):RAW:SAMP_DCM</pv_name>
+      <y>92</y>
+      <width>175</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):RAW:SAMP_DCM (RAW_SAMP_DCM)
+
+Sample decimation of the rawdata capture. Only every Nth sample is stored, so
+a larger value covers a longer time span over the same 2000 point buffer at
+the cost of time resolution. Minimum is 1, which keeps every sample.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Count</name>
+      <pv_name>$(P):RAW:TRIG_CNT</pv_name>
+      <x>185</x>
+      <y>92</y>
+      <width>175</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):RAW:TRIG_CNT (RAW_TRIG_CNT)
+
+Number of rawdata acquisitions completed since the IOC started, incremented by
+the rawdata thread. Use it to confirm that triggers are actually arriving.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Time</name>
+      <pv_name>$(P):TIME_S</pv_name>
+      <x>370</x>
+      <y>92</y>
+      <width>175</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):TIME_S (TIME_S)
+
+Current timestamp from the selected time source, formatted as
+YYYY-MM-DDTHH:MM:SS.nnnnnnnnn. Switch the source between system time and
+White Rabbit on the System page.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DecimationLabel</name>
+      <text>Sample decimation</text>
+      <y>126</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CountLabel</name>
+      <text>Trigger count</text>
+      <x>185</x>
+      <y>126</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>TimeLabel</name>
+      <text>Acquisition time</text>
+      <x>370</x>
+      <y>126</y>
+      <width>175</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Measure</name>
+    <macros>
+      <P>$(P)</P>
+      <CH>$(CH)</CH>
+    </macros>
+    <file>blm_measure.bob</file>
+    <x>612</x>
+    <y>37</y>
+    <width>630</width>
+    <height>190</height>
+    <resize>true</resize>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Channels</name>
+    <x>12</x>
+    <y>232</y>
+    <width>1216</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>C0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH0</text>
+      <x>317</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>1</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH1</text>
+      <x>407</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>2</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH2</text>
+      <x>497</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>3</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH3</text>
+      <x>587</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>4</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH4</text>
+      <x>677</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>C5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_rawdata.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>5</CH>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH5</text>
+      <x>767</x>
+      <width>85</width>
+      <height>32</height>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>RawdataPlot</name>
+    <x>12</x>
+    <y>320</y>
+    <width>1216</width>
+    <height>465</height>
+    <title>Rawdata - CH$(CH)</title>
+    <show_toolbar>true</show_toolbar>
+    <tooltip>$(P):CH$(CH):RAWDATA
+
+Most recent rawdata acquisition of channel $(CH), 2000 calibrated samples
+published by the rawdata thread. Use the channel buttons above to switch the
+displayed channel; the trigger configuration controls when a new acquisition
+is taken.</tooltip>
+    <x_axis>
+      <title>Sample</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Calibrated value</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>CH$(CH)</name>
+        <x_pv></x_pv>
+        <y_pv>$(P):CH$(CH):RAWDATA</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>12</x>
+    <y>800</y>
+    <width>600</width>
+    <height>18</height>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

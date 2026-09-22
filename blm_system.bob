@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM System</name>
+  <width>1180</width>
+  <height>510</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>System and hardware</text>
+    <x>15</x>
+    <y>10</y>
+    <width>500</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Version</name>
+    <pv_name>$(P):SYS:VERSION</pv_name>
+    <x>840</x>
+    <y>10</y>
+    <width>310</width>
+    <height>28</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Time</name>
+    <x>12</x>
+    <y>52</y>
+    <width>566</width>
+    <height>141</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Time source</text>
+      <width>200</width>
+      <height>24</height>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Source</name>
+      <pv_name>$(P):SYS:TIME_SOURCE</pv_name>
+      <y>30</y>
+      <width>190</width>
+      <height>32</height>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>System time</item>
+        <item>White Rabbit</item>
+      </items>
+      <tooltip>$(P):SYS:TIME_SOURCE (TIME_SOURCE)
+
+Selects which clock the timestamps are built from:
+  System time  - the Linux system clock of the Zynq board.
+  White Rabbit - the WR timestamp latched by the FPGA, which is the one to
+                 use for correlating with the rest of the accelerator.
+
+Applies to the current time below and to the interlock event times.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SourceLabel</name>
+      <text>Time source</text>
+      <y>64</y>
+      <width>190</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Value</name>
+      <pv_name>$(P):TIME_S</pv_name>
+      <x>200</x>
+      <y>30</y>
+      <width>320</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):TIME_S (TIME_S)
+
+Current timestamp from the selected time source, formatted as
+YYYY-MM-DDTHH:MM:SS.nnnnnnnnn. The White Rabbit time already carries UTC+8,
+the driver subtracts 28800 s to recover UTC.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>ValueLabel</name>
+      <text>Current time</text>
+      <x>200</x>
+      <y>62</y>
+      <width>320</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>WR</name>
+    <x>597</x>
+    <y>52</y>
+    <width>566</width>
+    <height>141</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>White Rabbit hardware</text>
+      <width>250</width>
+      <height>24</height>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Offset</name>
+      <pv_name>$(P):SYS:WB_TM_OFS</pv_name>
+      <y>30</y>
+      <width>170</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):SYS:WB_TM_OFS (MISC_WB_TM_OFS)
+
+Offset in seconds added to the White Rabbit timestamp received from the FPGA
+before it is published. Use it to compensate a fixed offset between the WR
+network time and the time reference used by the rest of the facility.
+Default 162 s.</tooltip>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>IDMode</name>
+      <pv_name>$(P):SYS:ID_MODE</pv_name>
+      <x>190</x>
+      <y>30</y>
+      <width>170</width>
+      <height>32</height>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Incremental ID</item>
+        <item>White Rabbit time</item>
+      </items>
+      <tooltip>$(P):SYS:ID_MODE (MISC_ID_MODE)
+
+Selects how the FPGA stamps the data packets it writes into BRAM:
+  Incremental ID  - each packet gets a locally incremented identifier.
+  White Rabbit time - each packet is stamped with the White Rabbit time, so
+                      the samples can be placed on the accelerator time
+                      axis.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>OffsetLabel</name>
+      <text>WR time offset</text>
+      <y>64</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>IDModeLabel</name>
+      <text>FPGA data ID mode</text>
+      <x>190</x>
+      <y>64</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Temperature</name>
+    <x>12</x>
+    <y>212</y>
+    <width>566</width>
+    <height>131</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Temperature (alarm at 90 C)</text>
+      <width>300</width>
+      <height>24</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PS</name>
+      <pv_name>$(P):ZynqMP:PS:Temp</pv_name>
+      <y>30</y>
+      <width>170</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:PS:Temp (PS_TEMP)
+
+Junction temperature of the Zynq UltraScale+ processing system, read from the
+on-chip AMS sensor by the monitor driver once a second. High alarm at 75 C,
+high-high alarm at 85 C.</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>PL</name>
+      <pv_name>$(P):ZynqMP:PL:Temp</pv_name>
+      <x>190</x>
+      <y>30</y>
+      <width>170</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:PL:Temp (PL_TEMP)
+
+Junction temperature of the Zynq UltraScale+ programmable logic, read from
+the on-chip AMS sensor by the monitor driver once a second. High alarm at
+75 C, high-high alarm at 85 C. A rising PL temperature while the beam is on
+usually means the FPGA logic is dissipating more than expected.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PSLabel</name>
+      <text>PS junction (C)</text>
+      <y>64</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>PLLabel</name>
+      <text>PL junction (C)</text>
+      <x>190</x>
+      <y>64</y>
+      <width>170</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Power</name>
+    <x>597</x>
+    <y>212</y>
+    <width>566</width>
+    <height>131</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Power rails</text>
+      <width>200</width>
+      <height>24</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>V1</name>
+      <pv_name>$(P):ZynqMP:VCCINT</pv_name>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):ZynqMP:VCCINT (VCCINT)
+
+Core supply of the Zynq UltraScale+ programmable logic, read from the on-chip
+AMS sensor. Nominal 0.85 V, low-low alarm at 0.55 V, high alarm at 1.50 V.</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>V2</name>
+      <pv_name>$(P):ZynqMP:VCCAUX</pv_name>
+      <x>180</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):ZynqMP:VCCAUX (VCCAUX)
+
+Auxiliary supply of the Zynq UltraScale+, read from the on-chip AMS sensor.
+Nominal 1.80 V, low-low alarm at 1.70 V, high alarm at 2.00 V.</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>V3</name>
+      <pv_name>$(P):ZynqMP:VCCBRAM</pv_name>
+      <x>360</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):ZynqMP:VCCBRAM (VCCBRAM)
+
+Block RAM supply of the Zynq UltraScale+, read from the on-chip AMS sensor.
+Nominal 0.85 V, low-low alarm at 0.80 V, high alarm at 0.90 V.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>V1Label</name>
+      <text>VCCINT (V)</text>
+      <y>64</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>V2Label</name>
+      <text>VCCAUX (V)</text>
+      <x>180</x>
+      <y>64</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>V3Label</name>
+      <text>VCCBRAM (V)</text>
+      <x>360</x>
+      <y>64</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>DAC</name>
+    <x>12</x>
+    <y>362</y>
+    <width>1151</width>
+    <height>131</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>DAC80508 reference hardware</text>
+      <width>300</width>
+      <height>24</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>ID</name>
+      <pv_name>$(P):SYS:DAC_DEV_ID</pv_name>
+      <y>30</y>
+      <width>180</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(P):SYS:DAC_DEV_ID (DAC_DEV_ID)
+
+DEVICE ID read back from the TI DAC80508 over the AXI Quad SPI link. A
+non-zero value confirms the DAC responds; if it stays at zero the SPI link or
+the bitstream address is wrong.</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Reset</name>
+      <actions>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):SYS:DAC_RESET</pv_name>
+      <text>Reset DAC</text>
+      <x>200</x>
+      <y>30</y>
+      <width>180</width>
+      <height>32</height>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <tooltip>$(actions)
+
+Sends a software reset to the DAC80508 and then re-applies the current
+reference setpoints of all six channels, so the comparator thresholds are
+restored without reloading from autosave.</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>IDLabel</name>
+      <text>Device ID</text>
+      <y>64</y>
+      <width>180</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+</display>

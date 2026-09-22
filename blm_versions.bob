@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-07-07 21:23:41 by suchen--><display version="2.0.0">
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER03-1</name>
+    <text>BLBD31BLMER03-1</text>
+    <x>20</x>
+    <y>20</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER03-1</name>
+    <pv_name>BLBD31BLMER03-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>20</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER04-1</name>
+    <text>BLBD31BLMER04-1</text>
+    <x>20</x>
+    <y>50</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER04-1</name>
+    <pv_name>BLBD31BLMER04-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>50</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER05-1</name>
+    <text>BLBD31BLMER05-1</text>
+    <x>20</x>
+    <y>80</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER05-1</name>
+    <pv_name>BLBD31BLMER05-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>80</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER07-1</name>
+    <text>BLBD31BLMER07-1</text>
+    <x>20</x>
+    <y>110</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER07-1</name>
+    <pv_name>BLBD31BLMER07-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>110</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER09-1</name>
+    <text>BLBD31BLMER09-1</text>
+    <x>20</x>
+    <y>140</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER09-1</name>
+    <pv_name>BLBD31BLMER09-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>140</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER19-1</name>
+    <text>BRBD41BLMER19-1</text>
+    <x>20</x>
+    <y>170</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER19-1</name>
+    <pv_name>BRBD41BLMER19-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>170</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER19-2</name>
+    <text>BRBD41BLMER19-2</text>
+    <x>20</x>
+    <y>200</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER19-2</name>
+    <pv_name>BRBD41BLMER19-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>200</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER20-1</name>
+    <text>BRBD41BLMER20-1</text>
+    <x>20</x>
+    <y>230</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER20-1</name>
+    <pv_name>BRBD41BLMER20-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>230</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER21-1</name>
+    <text>BRBD41BLMER21-1</text>
+    <x>20</x>
+    <y>260</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER21-1</name>
+    <pv_name>BRBD41BLMER21-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>260</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER21-2</name>
+    <text>BRBD41BLMER21-2</text>
+    <x>20</x>
+    <y>290</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER21-2</name>
+    <pv_name>BRBD41BLMER21-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>290</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER02-1</name>
+    <text>BRBD41BLMER02-1</text>
+    <x>20</x>
+    <y>320</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER02-1</name>
+    <pv_name>BRBD41BLMER02-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>320</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD31BLMER06-1</name>
+    <text>BLBD31BLMER06-1</text>
+    <x>20</x>
+    <y>350</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD31BLMER06-1</name>
+    <pv_name>BLBD31BLMER06-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>350</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER03-1</name>
+    <text>BRBD42BLMER03-1</text>
+    <x>20</x>
+    <y>380</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER03-1</name>
+    <pv_name>BRBD42BLMER03-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>380</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER03-2</name>
+    <text>BRBD42BLMER03-2</text>
+    <x>20</x>
+    <y>410</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER03-2</name>
+    <pv_name>BRBD42BLMER03-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>410</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER05-1</name>
+    <text>BRBD42BLMER05-1</text>
+    <x>20</x>
+    <y>440</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER05-1</name>
+    <pv_name>BRBD42BLMER05-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>440</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER05-2</name>
+    <text>BRBD42BLMER05-2</text>
+    <x>20</x>
+    <y>470</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER05-2</name>
+    <pv_name>BRBD42BLMER05-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>470</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER05-3</name>
+    <text>BRBD42BLMER05-3</text>
+    <x>20</x>
+    <y>500</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER05-3</name>
+    <pv_name>BRBD42BLMER05-3:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>500</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER07-1</name>
+    <text>BRBD42BLMER07-1</text>
+    <x>20</x>
+    <y>530</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER07-1</name>
+    <pv_name>BRBD42BLMER07-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>530</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER07-2</name>
+    <text>BRBD42BLMER07-2</text>
+    <x>20</x>
+    <y>560</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER07-2</name>
+    <pv_name>BRBD42BLMER07-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>560</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD42BLMER08-1</name>
+    <text>BRBD42BLMER08-1</text>
+    <x>20</x>
+    <y>590</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD42BLMER08-1</name>
+    <pv_name>BRBD42BLMER08-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>590</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER10-1</name>
+    <text>BRBD43BLMER10-1</text>
+    <x>20</x>
+    <y>620</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER10-1</name>
+    <pv_name>BRBD43BLMER10-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>620</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER10-2</name>
+    <text>BRBD43BLMER10-2</text>
+    <x>20</x>
+    <y>650</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER10-2</name>
+    <pv_name>BRBD43BLMER10-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>650</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER12-1</name>
+    <text>BRBD43BLMER12-1</text>
+    <x>20</x>
+    <y>680</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER12-1</name>
+    <pv_name>BRBD43BLMER12-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>680</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER12-2</name>
+    <text>BRBD43BLMER12-2</text>
+    <x>20</x>
+    <y>710</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER12-2</name>
+    <pv_name>BRBD43BLMER12-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>710</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER12-3</name>
+    <text>BRBD43BLMER12-3</text>
+    <x>20</x>
+    <y>740</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER12-3</name>
+    <pv_name>BRBD43BLMER12-3:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>740</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD51BLMER01-1</name>
+    <text>BLBD51BLMER01-1</text>
+    <x>20</x>
+    <y>770</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD51BLMER01-1</name>
+    <pv_name>BLBD51BLMER01-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>770</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER14-1</name>
+    <text>BRBD43BLMER14-1</text>
+    <x>20</x>
+    <y>800</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER14-1</name>
+    <pv_name>BRBD43BLMER14-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>800</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER14-2</name>
+    <text>BRBD43BLMER14-2</text>
+    <x>20</x>
+    <y>830</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER14-2</name>
+    <pv_name>BRBD43BLMER14-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>830</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD43BLMER17-1</name>
+    <text>BRBD43BLMER17-1</text>
+    <x>20</x>
+    <y>860</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD43BLMER17-1</name>
+    <pv_name>BRBD43BLMER17-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>860</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER17-2</name>
+    <text>BRBD41BLMER17-2</text>
+    <x>20</x>
+    <y>890</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER17-2</name>
+    <pv_name>BRBD41BLMER17-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>890</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BRBD41BLMER17-3</name>
+    <text>BRBD41BLMER17-3</text>
+    <x>20</x>
+    <y>920</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BRBD41BLMER17-3</name>
+    <pv_name>BRBD41BLMER17-3:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>920</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD82BLMER01-1</name>
+    <text>SRBD82BLMER01-1</text>
+    <x>20</x>
+    <y>950</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD82BLMER01-1</name>
+    <pv_name>SRBD82BLMER01-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>950</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD82BLMER01-2</name>
+    <text>SRBD82BLMER01-2</text>
+    <x>20</x>
+    <y>980</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD82BLMER01-2</name>
+    <pv_name>SRBD82BLMER01-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>980</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD83BLMER04-1</name>
+    <text>SRBD83BLMER04-1</text>
+    <x>20</x>
+    <y>1010</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD83BLMER04-1</name>
+    <pv_name>SRBD83BLMER04-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1010</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD83BLMER04-2</name>
+    <text>SRBD83BLMER04-2</text>
+    <x>20</x>
+    <y>1040</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD83BLMER04-2</name>
+    <pv_name>SRBD83BLMER04-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1040</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD84BLMER13-1</name>
+    <text>SRBD84BLMER13-1</text>
+    <x>20</x>
+    <y>1070</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD84BLMER13-1</name>
+    <pv_name>SRBD84BLMER13-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1070</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD84BLMER13-2</name>
+    <text>SRBD84BLMER13-2</text>
+    <x>20</x>
+    <y>1100</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD84BLMER13-2</name>
+    <pv_name>SRBD84BLMER13-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1100</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD81BLMER07-1</name>
+    <text>SRBD81BLMER07-1</text>
+    <x>20</x>
+    <y>1130</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD81BLMER07-1</name>
+    <pv_name>SRBD81BLMER07-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1130</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_SRBD81BLMER07-2</name>
+    <text>SRBD81BLMER07-2</text>
+    <x>20</x>
+    <y>1160</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_SRBD81BLMER07-2</name>
+    <pv_name>SRBD81BLMER07-2:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1160</y>
+    <width>300</width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_BLBD71BLMER01-1</name>
+    <text>BLBD71BLMER01-1</text>
+    <x>20</x>
+    <y>1190</y>
+    <width>150</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>TextUpdate_BLBD71BLMER01-1</name>
+    <pv_name>BLBD71BLMER01-1:SYS:VERSION</pv_name>
+    <x>180</x>
+    <y>1190</y>
+    <width>300</width>
+  </widget>
+</display>
