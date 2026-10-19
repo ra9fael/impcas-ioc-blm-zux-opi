@@ -85,6 +85,7 @@ after Apply.</tooltip>
       <height>28</height>
       <precision>4</precision>
       <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
       <tooltip>$(P):CH$(CH):CALI_K0 (ADC_CALI_CH$(CH)_K0)
 
 Active Factory K0 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
@@ -99,6 +100,7 @@ Active Factory K0 coefficient. Changes only after Apply, Reload, or Reset.</tool
       <height>28</height>
       <precision>4</precision>
       <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
       <tooltip>$(P):CH$(CH):CALI_B0 (ADC_CALI_CH$(CH)_B0)
 
 Active Factory B0 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
@@ -113,6 +115,7 @@ Active Factory B0 coefficient. Changes only after Apply, Reload, or Reset.</tool
       <height>28</height>
       <precision>4</precision>
       <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
       <tooltip>$(P):CH$(CH):CALI_K1 (ADC_CALI_CH$(CH)_K1)
 
 Active Field K1 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>
@@ -127,6 +130,7 @@ Active Field K1 coefficient. Changes only after Apply, Reload, or Reset.</toolti
       <height>28</height>
       <precision>4</precision>
       <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
       <tooltip>$(P):CH$(CH):CALI_B1 (ADC_CALI_CH$(CH)_B1)
 
 Active Field B1 coefficient. Changes only after Apply, Reload, or Reset.</tooltip>

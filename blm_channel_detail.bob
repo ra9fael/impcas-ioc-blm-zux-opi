@@ -2,7 +2,6 @@
 <display version="2.0.0">
   <name>BLM Channel $(CH)</name>
   <width>1180</width>
-  <height>530</height>
   <widget type="label" version="2.0.0">
     <name>Title</name>
     <text>Beam Loss Monitor | Channel $(CH)</text>
@@ -216,24 +215,28 @@ value the interlock compares against the FBR thresholds.</tooltip>
   <widget type="textentry" version="3.0.0">
     <name>ADCFilter</name>
     <pv_name>$(P):CH$(CH):ADC_FILT_TH</pv_name>
-    <x>710</x>
-    <y>62</y>
-    <width>180</width>
+    <x>610</x>
+    <y>130</y>
+    <width>282</width>
     <height>34</height>
-    <show_units>true</show_units>
     <horizontal_alignment>1</horizontal_alignment>
     <tooltip>$(P):CH$(CH):ADC_FILT_TH (ADC_FILT_TH_CH$(CH))
 
-ADC filter threshold of channel $(CH), in calibrated units. Samples below
-this level are dropped before the integrals are formed, which keeps noise from
-accumulating into the longer time scales. The value is converted to raw ADC
-counts with the inverse calibration before it is written to the FPGA.</tooltip>
+Noise clamp of channel $(CH), not a filter length: every sample whose signed
+value is at or below this level is zeroed before the integrals are formed, so
+it keeps the baseline out of the longer time scales. Entered in mV and
+converted to raw counts with the inverse calibration; the PL compares that
+count as signed 16-bit, so a level outside +/-32767 counts is rejected and
+this field returns to its previous value (about +/-1365 mV before
+calibration). 0 (the default) already zeroes every non-positive sample: a
+channel sitting on a negative baseline therefore reads exactly 0 until the
+clamp is set negative.</tooltip>
   </widget>
   <widget type="label" version="2.0.0">
     <name>ADCFilterLabel</name>
     <text>ADC filter threshold</text>
-    <x>710</x>
-    <y>98</y>
+    <x>670</x>
+    <y>164</y>
     <width>180</width>
     <height>22</height>
     <horizontal_alignment>1</horizontal_alignment>
@@ -248,9 +251,19 @@ counts with the inverse calibration before it is written to the FPGA.</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <tooltip>$(P):CH$(CH):DAC_REF_SP (DAC_REF_CH$(CH))
 
-Comparator reference voltage of channel $(CH) in mV, valid range 0 to 2500 mV.
-It is written to the matching DAC80508 output over SPI as soon as the value
-changes, and sets the analog threshold the FPGA compares the input against.</tooltip>
+Comparator reference of channel $(CH) as a user quantity x, not a DAC voltage.
+The driver sends K*x + B (mV) to the matching DAC80508 output over SPI, using
+this channel's DAC_CALI_K/DAC_CALI_B coefficients, so a change here or to
+either coefficient takes effect immediately.
+
+The front end inverts the negative detector pulse and amplifies it, so the
+comparator sees a positive-going signal and weighs it against this level:
+raising the reference makes the channel less sensitive. The FPGA interlock
+thresholds are a separate, digital comparison.
+
+The range check applies to the transformed value, so a K*x + B outside 0 to
+2500 mV is refused (reject ... retained) and this field returns to its
+previous x with WRITE_ALARM; the DAC holds the last accepted reference.</tooltip>
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>DACRBV</name>
@@ -263,14 +276,17 @@ changes, and sets the analog threshold the FPGA compares the input against.</too
     <vertical_alignment>1</vertical_alignment>
     <tooltip>$(P):CH$(CH):DAC_REF_RBV (DAC_REF_CH$(CH)_RB)
 
-Reference voltage of channel $(CH) read back from the DAC80508, in mV. It
-follows the setpoint within one status poll interval; a persistent mismatch
-means the DAC did not accept the write.</tooltip>
+Reference voltage of channel $(CH) read back from the DAC80508, in mV, so it
+reports what the comparator actually sees. On a healthy write this equals the
+K*x + B the driver computed from DAC_REF_SP and the calibration coefficients.
+An out-of-range K*x + B is refused before it reaches the chip, so the readback
+stays on the previous accepted value rather than a clamped one; any other
+mismatch means the SPI write did not reach the chip.</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
     <name>DACSPLabel</name>
-    <text>DAC setpoint (mV)</text>
+    <text>DAC setpoint x</text>
     <x>910</x>
     <y>98</y>
     <width>120</width>
@@ -286,10 +302,150 @@ means the DAC did not accept the write.</tooltip>
     <height>22</height>
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
+  <widget type="label" version="2.0.0">
+    <name>DoseHeader</name>
+    <text>DOSE</text>
+    <x>18</x>
+    <y>133</y>
+    <width>70</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>DoseValue</name>
+    <pv_name>$(P):CH$(CH):DOSE</pv_name>
+    <x>150</x>
+    <y>130</y>
+    <width>170</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):DOSE (CH$(CH)_DOSE)
+
+Dose rate of channel $(CH) in uSv/h. The driver computes it as
+K * FBR_CNT_100MS + B from the newest 100 ms fiber count and publishes it on
+the same 10 Hz pass as ADC_100MS/FBR_CNT_100MS. Read-only: edit DOSE_CALI_K /
+DOSE_CALI_B to recalibrate, persist them with $(P):DOSE_CALI:SAVE.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>DACCaliK</name>
+    <pv_name>$(P):CH$(CH):DAC_CALI_K</pv_name>
+    <x>910</x>
+    <y>130</y>
+    <width>120</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):DAC_CALI_K (DAC_CALI_CH$(CH)_K)
+
+Slope K of the DAC setpoint calibration of channel $(CH). The driver sends
+K*x + B (mV) to the DAC80508 for the DAC_REF_SP value x, so a new K
+re-applies the current setpoint immediately. Default 1; must be finite and
+non-zero - 0 is rejected and the previous value is retained. Persist with
+$(P):DAC_CALI:SAVE, restore with $(P):DAC_CALI:RLD.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>DACCaliB</name>
+    <pv_name>$(P):CH$(CH):DAC_CALI_B</pv_name>
+    <x>1040</x>
+    <y>130</y>
+    <width>120</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):DAC_CALI_B (DAC_CALI_CH$(CH)_B)
+
+Offset B (mV) of the DAC setpoint calibration of channel $(CH), added after
+the K*x term. Default 0; any finite value is accepted, but the transformed
+K*x + B still has to land inside 0 to 2500 mV or the setpoint is refused.
+Persist with $(P):DAC_CALI:SAVE, restore with $(P):DAC_CALI:RLD.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>DoseCaliK</name>
+    <pv_name>$(P):CH$(CH):DOSE_CALI_K</pv_name>
+    <x>350</x>
+    <y>130</y>
+    <width>120</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):DOSE_CALI_K (DOSE_CALI_CH$(CH)_K)
+
+Slope K (uSv/h per fiber count) of the dose calibration of channel $(CH):
+DOSE = K * FBR_CNT_100MS + B. A new K re-publishes the dose immediately from
+the cached count. Default 1; must be finite and non-zero - 0 is rejected and
+the previous value retained. Persist with $(P):DOSE_CALI:SAVE.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>DoseCaliB</name>
+    <pv_name>$(P):CH$(CH):DOSE_CALI_B</pv_name>
+    <x>480</x>
+    <y>130</y>
+    <width>120</width>
+    <height>34</height>
+    <format>3</format>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <tooltip>$(P):CH$(CH):DOSE_CALI_B (DOSE_CALI_CH$(CH)_B)
+
+Offset B (uSv/h) of the dose calibration of channel $(CH), added after the
+K*cnt term: it is the dose shown when the fiber count is zero (the electronic
+baseline). Default 0; any finite value is accepted and re-publishes the dose
+immediately. Persist with $(P):DOSE_CALI:SAVE.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DACCaliKLabel</name>
+    <text>DAC K</text>
+    <x>910</x>
+    <y>167</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DACCaliBLabel</name>
+    <text>DAC B</text>
+    <x>1040</x>
+    <y>167</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DoseCaliKLabel</name>
+    <text>Dose K</text>
+    <x>350</x>
+    <y>164</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DoseCaliBLabel</name>
+    <text>Dose B</text>
+    <x>480</x>
+    <y>164</y>
+    <width>120</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
   <widget type="group" version="3.0.0">
     <name>Thresholds</name>
     <x>13</x>
-    <y>130</y>
+    <y>195</y>
     <width>1152</width>
     <height>190</height>
     <font>
@@ -635,7 +791,7 @@ are meaningful.</tooltip>
     </macros>
     <file>blm_channel_calibration.bob</file>
     <x>13</x>
-    <y>320</y>
+    <y>385</y>
     <width>540</width>
     <height>175</height>
     <resize>true</resize>
@@ -648,7 +804,7 @@ are meaningful.</tooltip>
     </macros>
     <file>blm_channel_interlock.bob</file>
     <x>580</x>
-    <y>320</y>
+    <y>385</y>
     <width>580</width>
     <height>175</height>
     <resize>true</resize>
@@ -683,7 +839,7 @@ are meaningful.</tooltip>
     <name>Copyright</name>
     <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
     <x>13</x>
-    <y>510</y>
+    <y>575</y>
     <width>500</width>
     <foreground_color>
       <color red="100" green="100" blue="100">

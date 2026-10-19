@@ -2,7 +2,7 @@
 <display version="2.0.0">
   <name>BLM System</name>
   <width>1180</width>
-  <height>510</height>
+  <height>680</height>
   <widget type="label" version="2.0.0">
     <name>Title</name>
     <text>System and hardware</text>
@@ -47,11 +47,6 @@
       <y>30</y>
       <width>190</width>
       <height>32</height>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <items>
-        <item>System time</item>
-        <item>White Rabbit</item>
-      </items>
       <tooltip>$(P):SYS:TIME_SOURCE (TIME_SOURCE)
 
 Selects which clock the timestamps are built from:
@@ -60,6 +55,11 @@ Selects which clock the timestamps are built from:
                  use for correlating with the rest of the accelerator.
 
 Applies to the current time below and to the interlock event times.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>System time</item>
+        <item>White Rabbit</item>
+      </items>
     </widget>
     <widget type="label" version="2.0.0">
       <name>SourceLabel</name>
@@ -78,12 +78,12 @@ Applies to the current time below and to the interlock event times.</tooltip>
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):TIME_S (TIME_S)
 
 Current timestamp from the selected time source, formatted as
 YYYY-MM-DDTHH:MM:SS.nnnnnnnnn. The White Rabbit time already carries UTC+8,
 the driver subtracts 28800 s to recover UTC.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="label" version="2.0.0">
       <name>ValueLabel</name>
@@ -118,13 +118,13 @@ the driver subtracts 28800 s to recover UTC.</tooltip>
       <width>170</width>
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):SYS:WB_TM_OFS (MISC_WB_TM_OFS)
 
 Offset in seconds added to the White Rabbit timestamp received from the FPGA
 before it is published. Use it to compensate a fixed offset between the WR
 network time and the time reference used by the rest of the facility.
 Default 162 s.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="combo" version="2.0.0">
       <name>IDMode</name>
@@ -133,11 +133,6 @@ Default 162 s.</tooltip>
       <y>30</y>
       <width>170</width>
       <height>32</height>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <items>
-        <item>Incremental ID</item>
-        <item>White Rabbit time</item>
-      </items>
       <tooltip>$(P):SYS:ID_MODE (MISC_ID_MODE)
 
 Selects how the FPGA stamps the data packets it writes into BRAM:
@@ -145,6 +140,11 @@ Selects how the FPGA stamps the data packets it writes into BRAM:
   White Rabbit time - each packet is stamped with the White Rabbit time, so
                       the samples can be placed on the accelerator time
                       axis.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <items>
+        <item>Incremental ID</item>
+        <item>White Rabbit time</item>
+      </items>
     </widget>
     <widget type="label" version="2.0.0">
       <name>OffsetLabel</name>
@@ -252,11 +252,11 @@ usually means the FPGA logic is dissipating more than expected.</tooltip>
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):ZynqMP:VCCINT (VCCINT)
 
 Core supply of the Zynq UltraScale+ programmable logic, read from the on-chip
 AMS sensor. Nominal 0.85 V, low-low alarm at 0.55 V, high alarm at 1.50 V.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>V2</name>
@@ -267,11 +267,11 @@ AMS sensor. Nominal 0.85 V, low-low alarm at 0.55 V, high alarm at 1.50 V.</tool
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):ZynqMP:VCCAUX (VCCAUX)
 
 Auxiliary supply of the Zynq UltraScale+, read from the on-chip AMS sensor.
 Nominal 1.80 V, low-low alarm at 1.70 V, high alarm at 2.00 V.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>V3</name>
@@ -282,11 +282,11 @@ Nominal 1.80 V, low-low alarm at 1.70 V, high alarm at 2.00 V.</tooltip>
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):ZynqMP:VCCBRAM (VCCBRAM)
 
 Block RAM supply of the Zynq UltraScale+, read from the on-chip AMS sensor.
 Nominal 0.85 V, low-low alarm at 0.80 V, high alarm at 0.90 V.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="label" version="2.0.0">
       <name>V1Label</name>
@@ -339,12 +339,12 @@ Nominal 0.85 V, low-low alarm at 0.80 V, high alarm at 0.90 V.</tooltip>
       <height>32</height>
       <horizontal_alignment>1</horizontal_alignment>
       <vertical_alignment>1</vertical_alignment>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(P):SYS:DAC_DEV_ID (DAC_DEV_ID)
 
 DEVICE ID read back from the TI DAC80508 over the AXI Quad SPI link. A
 non-zero value confirms the DAC responds; if it stays at zero the SPI link or
 the bitstream address is wrong.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="action_button" version="3.0.0">
       <name>Reset</name>
@@ -361,18 +361,328 @@ the bitstream address is wrong.</tooltip>
       <y>30</y>
       <width>180</width>
       <height>32</height>
-      <border_alarm_sensitive>false</border_alarm_sensitive>
       <tooltip>$(actions)
 
 Sends a software reset to the DAC80508 and then re-applies the current
 reference setpoints of all six channels, so the comparator thresholds are
 restored without reloading from autosave.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="label" version="2.0.0">
       <name>IDLabel</name>
       <text>Device ID</text>
       <y>64</y>
       <width>180</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>HostResources</name>
+    <x>12</x>
+    <y>505</y>
+    <width>1151</width>
+    <height>175</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="label" version="2.0.0">
+      <name>Title</name>
+      <text>Host resources (Linux, 1 s poll)</text>
+      <width>350</width>
+      <height>24</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CPUUsage</name>
+      <pv_name>$(P):ZynqMP:CPU:Usage</pv_name>
+      <x>10</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:CPU:Usage (CPU_USAGE)
+
+Busy percentage of all CPU cores together, computed by the monitor driver
+from /proc/stat deltas over the 1 s poll interval. The first read reports 0
+because there is no previous window yet. Minor alarm at 90%: sustained high
+CPU load together with a high load average usually means the IOC is
+oversubscribed.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Load1</name>
+      <pv_name>$(P):ZynqMP:CPU:Load1</pv_name>
+      <x>180</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:CPU:Load1 (CPU_LOAD1)
+
+1-minute load average from /proc/loadavg. Values around the core count mean
+the CPUs are saturated; minor alarm at 4.0 (quad-core PS).</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Load5</name>
+      <pv_name>$(P):ZynqMP:CPU:Load5</pv_name>
+      <x>350</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:CPU:Load5 (CPU_LOAD5)
+
+5-minute load average from /proc/loadavg. Smoother than the 1-minute value;
+use it to judge a sustained load. Minor alarm at 4.0.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Load15</name>
+      <pv_name>$(P):ZynqMP:CPU:Load15</pv_name>
+      <x>520</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:CPU:Load15 (CPU_LOAD15)
+
+15-minute load average from /proc/loadavg. The slowest of the three; a high
+15-minute value means the load is not a transient spike. Minor alarm at
+4.0.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MEMUsedPct</name>
+      <pv_name>$(P):ZynqMP:MEM:UsedPct</pv_name>
+      <x>765</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:MEM:UsedPct (MEM_USED_PCT)
+
+Memory usage in percent: (MemTotal - MemAvailable) / MemTotal from
+/proc/meminfo, in MB via the Used and Total fields to the right. Minor alarm
+at 90%.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MEMUsed</name>
+      <pv_name>$(P):ZynqMP:MEM:Used</pv_name>
+      <x>935</x>
+      <y>30</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:MEM:Used (MEM_USED)
+
+Memory in use in MB: MemTotal - MemAvailable from /proc/meminfo. This is the
+value the percentage on the left is computed from.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MEMTotal</name>
+      <pv_name>$(P):ZynqMP:MEM:Total</pv_name>
+      <x>935</x>
+      <y>90</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:MEM:Total (MEM_TOTAL)
+
+Total physical memory in MB (MemTotal from /proc/meminfo). Constant for a
+given board; useful as the denominator of the used values.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>BootUsedPct</name>
+      <pv_name>$(P):ZynqMP:DISK:Boot:UsedPct</pv_name>
+      <x>10</x>
+      <y>90</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:DISK:Boot:UsedPct (DISK_USED_PCT /boot)
+
+Used percentage of /boot, the FAT boot partition (SD card partition 1). The
+boot files live here, so filling it up blocks firmware updates. Minor alarm
+at 90%, major at 95%.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>BootFree</name>
+      <pv_name>$(P):ZynqMP:DISK:Boot:Free</pv_name>
+      <x>180</x>
+      <y>90</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:DISK:Boot:Free (DISK_FREE_MB /boot)
+
+Free space of /boot in MB (space available to unprivileged users, as df
+reports it). Informational; the alarm is on the percentage field.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RootUsedPct</name>
+      <pv_name>$(P):ZynqMP:DISK:Root:UsedPct</pv_name>
+      <x>350</x>
+      <y>90</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:DISK:Root:UsedPct (DISK_USED_PCT /)
+
+Used percentage of /, the root filesystem (SD card partition 2). Logs and
+the IOC installation live here. Minor alarm at 90%, major at 95%.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>RootFree</name>
+      <pv_name>$(P):ZynqMP:DISK:Root:Free</pv_name>
+      <x>520</x>
+      <y>90</y>
+      <width>160</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):ZynqMP:DISK:Root:Free (DISK_FREE_MB /)
+
+Free space of the root filesystem in MB (space available to unprivileged
+users, as df reports it). Informational; the alarm is on the percentage
+field.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>CPUUsageLabel</name>
+      <text>CPU usage (%)</text>
+      <x>10</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Load1Label</name>
+      <text>Load 1 min</text>
+      <x>180</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Load5Label</name>
+      <text>Load 5 min</text>
+      <x>350</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Load15Label</name>
+      <text>Load 15 min</text>
+      <x>520</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>MEMUsedPctLabel</name>
+      <text>Memory used (%)</text>
+      <x>765</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>MEMUsedLabel</name>
+      <text>Memory used (MB)</text>
+      <x>935</x>
+      <y>62</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>MEMTotalLabel</name>
+      <text>Memory total (MB)</text>
+      <x>935</x>
+      <y>122</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BootUsedPctLabel</name>
+      <text>Boot used (%)</text>
+      <x>10</x>
+      <y>122</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>BootFreeLabel</name>
+      <text>Boot free (MB)</text>
+      <x>180</x>
+      <y>122</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RootUsedPctLabel</name>
+      <text>Root used (%)</text>
+      <x>350</x>
+      <y>122</y>
+      <width>160</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>RootFreeLabel</name>
+      <text>Root free (MB)</text>
+      <x>520</x>
+      <y>122</y>
+      <width>160</width>
       <height>22</height>
       <horizontal_alignment>1</horizontal_alignment>
     </widget>

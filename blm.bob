@@ -2,10 +2,10 @@
 <display version="2.0.0">
   <name>BLM</name>
   <macros>
-    <P>XRAY:BLM00</P>
+    <P>$(P)</P>
   </macros>
-  <width>1400</width>
-  <height>1160</height>
+  <width>1500</width>
+  <height>1500</height>
   <widget type="embedded" version="2.0.0">
     <name>Main</name>
     <macros>
@@ -13,7 +13,7 @@
     </macros>
     <file>blm_main.bob</file>
     <width>1400</width>
-    <height>1160</height>
+    <height>1350</height>
     <resize>true</resize>
   </widget>
 </display>

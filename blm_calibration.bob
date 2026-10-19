@@ -6,7 +6,7 @@
     <CH>$(CH)</CH>
   </macros>
   <width>1090</width>
-  <height>550</height>
+  <height>660</height>
   <widget type="label" version="2.0.0">
     <name>Title</name>
     <text>ADC calibration and measurement</text>
@@ -400,7 +400,7 @@ Last calibration error. Empty means no error.</tooltip>
     </widget>
   </widget>
   <widget type="group" version="3.0.0">
-    <name>File</name>
+    <name>ADC coefficient files</name>
     <x>12</x>
     <y>275</y>
     <width>619</width>
@@ -484,17 +484,223 @@ on disk is not touched until you press Save.</tooltip>
     <width>447</width>
     <height>250</height>
   </widget>
+  <widget type="group" version="3.0.0">
+    <name>Setpoint and dose files</name>
+    <x>12</x>
+    <y>530</y>
+    <width>1069</width>
+    <height>100</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>DoseSave</name>
+      <actions>
+        <action type="write_pv">
+          <description>Save dose K/B to file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):DOSE_CALI:SAVE</pv_name>
+      <text>Save dose K/B</text>
+      <x>264</x>
+      <y>1</y>
+      <width>112</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Writes the dose coefficients (K, B) of all six channels currently held by the
+driver to ${BLMCALIB}/dose_calib_params.txt, so they survive an IOC restart.
+Run this after editing DOSE_CALI_K / DOSE_CALI_B on the channel detail
+page.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>DoseReload</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reload dose K/B from file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):DOSE_CALI:RLD</pv_name>
+      <text>Reload dose K/B</text>
+      <x>387</x>
+      <y>1</y>
+      <width>112</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Discards the dose coefficients in the driver, reads them back from
+${BLMCALIB}/dose_calib_params.txt and re-publishes every channel's DOSE from
+its cached 100 ms fiber count. Use this to undo an unsaved dose
+calibration.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DoseCaliB</name>
+      <pv_name>$(P):CH$(CH):DOSE_CALI_B</pv_name>
+      <x>130</x>
+      <y>1</y>
+      <width>120</width>
+      <height>34</height>
+      <format>3</format>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):DOSE_CALI_B (DOSE_CALI_CH$(CH)_B)
+
+Offset B (uSv/h) of the dose calibration of channel $(CH), added after the
+K*cnt term: it is the dose shown when the fiber count is zero (the electronic
+baseline). Default 0; any finite value is accepted and re-publishes the dose
+immediately. Persist with $(P):DOSE_CALI:SAVE.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DoseCaliK</name>
+      <pv_name>$(P):CH$(CH):DOSE_CALI_K</pv_name>
+      <y>1</y>
+      <width>120</width>
+      <height>34</height>
+      <format>3</format>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):DOSE_CALI_K (DOSE_CALI_CH$(CH)_K)
+
+Slope K (uSv/h per fiber count) of the dose calibration of channel $(CH):
+DOSE = K * FBR_CNT_100MS + B. A new K re-publishes the dose immediately from
+the cached count. Default 1; must be finite and non-zero - 0 is rejected and
+the previous value retained. Persist with $(P):DOSE_CALI:SAVE.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DoseCaliKLabel</name>
+      <text>Dose K</text>
+      <y>35</y>
+      <width>120</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DoseCaliBLabel</name>
+      <text>Dose B</text>
+      <x>130</x>
+      <y>35</y>
+      <width>120</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DACCaliK</name>
+      <pv_name>$(P):CH$(CH):DAC_CALI_K</pv_name>
+      <x>509</x>
+      <y>1</y>
+      <width>120</width>
+      <height>34</height>
+      <format>3</format>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):DAC_CALI_K (DAC_CALI_CH$(CH)_K)
+
+Slope K of the DAC setpoint calibration of channel $(CH). The driver sends
+K*x + B (mV) to the DAC80508 for the DAC_REF_SP value x, so a new K
+re-applies the current setpoint immediately. Default 1; must be finite and
+non-zero - 0 is rejected and the previous value is retained. Persist with
+$(P):DAC_CALI:SAVE, restore with $(P):DAC_CALI:RLD.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DACCaliKLabel</name>
+      <text>DAC K</text>
+      <x>509</x>
+      <y>38</y>
+      <width>120</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>DACCaliB</name>
+      <pv_name>$(P):CH$(CH):DAC_CALI_B</pv_name>
+      <x>640</x>
+      <y>1</y>
+      <width>120</width>
+      <height>34</height>
+      <format>3</format>
+      <precision>4</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH$(CH):DAC_CALI_B (DAC_CALI_CH$(CH)_B)
+
+Offset B (mV) of the DAC setpoint calibration of channel $(CH), added after
+the K*x term. Default 0; any finite value is accepted, but the transformed
+K*x + B still has to land inside 0 to 2500 mV or the setpoint is refused.
+Persist with $(P):DAC_CALI:SAVE, restore with $(P):DAC_CALI:RLD.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DACCaliBLabel</name>
+      <text>DAC B</text>
+      <x>647</x>
+      <y>38</y>
+      <width>120</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>DacSave</name>
+      <actions>
+        <action type="write_pv">
+          <description>Save DAC K/B to file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):DAC_CALI:SAVE</pv_name>
+      <text>Save DAC K/B</text>
+      <x>770</x>
+      <y>1</y>
+      <width>120</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Writes the DAC setpoint coefficients (K, B) of all six channels currently
+held by the driver to ${BLMCALIB}/dac_calib_params.txt, so they survive an
+IOC restart. Run this after editing DAC_CALI_K / DAC_CALI_B on the channel
+detail page.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>DacReload</name>
+      <actions>
+        <action type="write_pv">
+          <description>Reload DAC K/B from file</description>
+          <pv_name>$(pv_name)</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <pv_name>$(P):DAC_CALI:RLD</pv_name>
+      <text>Reload DAC K/B</text>
+      <x>900</x>
+      <y>1</y>
+      <width>120</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Discards the DAC setpoint coefficients in the driver, reads them back from
+${BLMCALIB}/dac_calib_params.txt and re-applies them by re-sending every
+channel's current DAC_REF_SP through K*x + B. Use this to undo an unsaved
+DAC calibration.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
   <widget type="label" version="2.0.0">
     <name>Copyright</name>
     <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
-    <x>15</x>
-    <y>525</y>
+    <x>12</x>
+    <y>640</y>
     <width>600</width>
     <height>18</height>
-    <font>
-      <font name="Default" family="Liberation Sans" style="REGULAR" size="12.0">
-      </font>
-    </font>
     <foreground_color>
       <color red="100" green="100" blue="100">
       </color>

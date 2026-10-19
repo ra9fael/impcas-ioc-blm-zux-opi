@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>BLM FBR Means</name>
+  <macros>
+    <CH>$(CH)</CH>
+    <P>$(P)</P>
+    <SCALE>$(SCALE)</SCALE>
+  </macros>
+  <width>1200</width>
+  <height>880</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>FBR realtime window means</text>
+    <x>15</x>
+    <y>10</y>
+    <width>600</width>
+    <height>30</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>FBR mean 1 ms (cnt/1ms)</name>
+    <x>15</x>
+    <y>52</y>
+    <width>645</width>
+    <height>141</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch0</name>
+      <pv_name>$(P):CH0:FBR_MEAN_1MS</pv_name>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH0:FBR_MEAN_1MS (CH0_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH0:MEAN_WIN_1MS points of
+$(P):CH0:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH0:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch0Label</name>
+      <text>CH0</text>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch1</name>
+      <pv_name>$(P):CH1:FBR_MEAN_1MS</pv_name>
+      <x>90</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH1:FBR_MEAN_1MS (CH1_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH1:MEAN_WIN_1MS points of
+$(P):CH1:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH1:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch1Label</name>
+      <text>CH1</text>
+      <x>90</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch2</name>
+      <pv_name>$(P):CH2:FBR_MEAN_1MS</pv_name>
+      <x>180</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH2:FBR_MEAN_1MS (CH2_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH2:MEAN_WIN_1MS points of
+$(P):CH2:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH2:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch2Label</name>
+      <text>CH2</text>
+      <x>180</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch3</name>
+      <pv_name>$(P):CH3:FBR_MEAN_1MS</pv_name>
+      <x>270</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH3:FBR_MEAN_1MS (CH3_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH3:MEAN_WIN_1MS points of
+$(P):CH3:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH3:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch3Label</name>
+      <text>CH3</text>
+      <x>270</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch4</name>
+      <pv_name>$(P):CH4:FBR_MEAN_1MS</pv_name>
+      <x>360</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH4:FBR_MEAN_1MS (CH4_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH4:MEAN_WIN_1MS points of
+$(P):CH4:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH4:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch4Label</name>
+      <text>CH4</text>
+      <x>360</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M1Ch5</name>
+      <pv_name>$(P):CH5:FBR_MEAN_1MS</pv_name>
+      <x>450</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH5:FBR_MEAN_1MS (CH5_FBR_MEAN_1MS)
+
+Mean of the newest $(P):CH5:MEAN_WIN_1MS points of
+$(P):CH5:FBR_RT_1MS_3000DP.
+
+Unit cnt/1ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH5:FBR_ILK_TH_1MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Ch5Label</name>
+      <text>CH5</text>
+      <x>450</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win0</name>
+      <pv_name>$(P):CH0:MEAN_WIN_1MS</pv_name>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH0:MEAN_WIN_1MS (MEAN_WIN_CH0_1MS)
+
+How many of the newest points of $(P):CH0:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win0Label</name>
+      <text>Window</text>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win1</name>
+      <pv_name>$(P):CH1:MEAN_WIN_1MS</pv_name>
+      <x>90</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH1:MEAN_WIN_1MS (MEAN_WIN_CH1_1MS)
+
+How many of the newest points of $(P):CH1:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win1Label</name>
+      <text>Window</text>
+      <x>90</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win2</name>
+      <pv_name>$(P):CH2:MEAN_WIN_1MS</pv_name>
+      <x>180</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH2:MEAN_WIN_1MS (MEAN_WIN_CH2_1MS)
+
+How many of the newest points of $(P):CH2:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win2Label</name>
+      <text>Window</text>
+      <x>180</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win3</name>
+      <pv_name>$(P):CH3:MEAN_WIN_1MS</pv_name>
+      <x>270</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH3:MEAN_WIN_1MS (MEAN_WIN_CH3_1MS)
+
+How many of the newest points of $(P):CH3:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win3Label</name>
+      <text>Window</text>
+      <x>270</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win4</name>
+      <pv_name>$(P):CH4:MEAN_WIN_1MS</pv_name>
+      <x>360</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH4:MEAN_WIN_1MS (MEAN_WIN_CH4_1MS)
+
+How many of the newest points of $(P):CH4:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win4Label</name>
+      <text>Window</text>
+      <x>360</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M1Win5</name>
+      <pv_name>$(P):CH5:MEAN_WIN_1MS</pv_name>
+      <x>450</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH5:MEAN_WIN_1MS (MEAN_WIN_CH5_1MS)
+
+How many of the newest points of $(P):CH5:FBR_RT_1MS_3000DP
+that channel's FBR_MEAN_1MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 1 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M1Win5Label</name>
+      <text>Window</text>
+      <x>450</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>FBR mean 10 ms (cnt/10ms)</name>
+    <x>15</x>
+    <y>193</y>
+    <width>645</width>
+    <height>150</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch0</name>
+      <pv_name>$(P):CH0:FBR_MEAN_10MS</pv_name>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH0:FBR_MEAN_10MS (CH0_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH0:MEAN_WIN_10MS points of
+$(P):CH0:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH0:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch0Label</name>
+      <text>CH0</text>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch1</name>
+      <pv_name>$(P):CH1:FBR_MEAN_10MS</pv_name>
+      <x>90</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH1:FBR_MEAN_10MS (CH1_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH1:MEAN_WIN_10MS points of
+$(P):CH1:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH1:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch1Label</name>
+      <text>CH1</text>
+      <x>90</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch2</name>
+      <pv_name>$(P):CH2:FBR_MEAN_10MS</pv_name>
+      <x>180</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH2:FBR_MEAN_10MS (CH2_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH2:MEAN_WIN_10MS points of
+$(P):CH2:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH2:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch2Label</name>
+      <text>CH2</text>
+      <x>180</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch3</name>
+      <pv_name>$(P):CH3:FBR_MEAN_10MS</pv_name>
+      <x>270</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH3:FBR_MEAN_10MS (CH3_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH3:MEAN_WIN_10MS points of
+$(P):CH3:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH3:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch3Label</name>
+      <text>CH3</text>
+      <x>270</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch4</name>
+      <pv_name>$(P):CH4:FBR_MEAN_10MS</pv_name>
+      <x>360</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH4:FBR_MEAN_10MS (CH4_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH4:MEAN_WIN_10MS points of
+$(P):CH4:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH4:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch4Label</name>
+      <text>CH4</text>
+      <x>360</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M10Ch5</name>
+      <pv_name>$(P):CH5:FBR_MEAN_10MS</pv_name>
+      <x>450</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH5:FBR_MEAN_10MS (CH5_FBR_MEAN_10MS)
+
+Mean of the newest $(P):CH5:MEAN_WIN_10MS points of
+$(P):CH5:FBR_RT_10MS_3000DP.
+
+Unit cnt/10ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH5:FBR_ILK_TH_10MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Ch5Label</name>
+      <text>CH5</text>
+      <x>450</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win0</name>
+      <pv_name>$(P):CH0:MEAN_WIN_10MS</pv_name>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH0:MEAN_WIN_10MS (MEAN_WIN_CH0_10MS)
+
+How many of the newest points of $(P):CH0:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win0Label</name>
+      <text>Window</text>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win1</name>
+      <pv_name>$(P):CH1:MEAN_WIN_10MS</pv_name>
+      <x>90</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH1:MEAN_WIN_10MS (MEAN_WIN_CH1_10MS)
+
+How many of the newest points of $(P):CH1:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win1Label</name>
+      <text>Window</text>
+      <x>90</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win2</name>
+      <pv_name>$(P):CH2:MEAN_WIN_10MS</pv_name>
+      <x>180</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH2:MEAN_WIN_10MS (MEAN_WIN_CH2_10MS)
+
+How many of the newest points of $(P):CH2:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win2Label</name>
+      <text>Window</text>
+      <x>180</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win3</name>
+      <pv_name>$(P):CH3:MEAN_WIN_10MS</pv_name>
+      <x>270</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH3:MEAN_WIN_10MS (MEAN_WIN_CH3_10MS)
+
+How many of the newest points of $(P):CH3:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win3Label</name>
+      <text>Window</text>
+      <x>270</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win4</name>
+      <pv_name>$(P):CH4:MEAN_WIN_10MS</pv_name>
+      <x>360</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH4:MEAN_WIN_10MS (MEAN_WIN_CH4_10MS)
+
+How many of the newest points of $(P):CH4:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win4Label</name>
+      <text>Window</text>
+      <x>360</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M10Win5</name>
+      <pv_name>$(P):CH5:MEAN_WIN_10MS</pv_name>
+      <x>450</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH5:MEAN_WIN_10MS (MEAN_WIN_CH5_10MS)
+
+How many of the newest points of $(P):CH5:FBR_RT_10MS_3000DP
+that channel's FBR_MEAN_10MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 10 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M10Win5Label</name>
+      <text>Window</text>
+      <x>450</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>FBR mean 100 ms (cnt/100ms)</name>
+    <x>15</x>
+    <y>343</y>
+    <width>645</width>
+    <height>142</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch0</name>
+      <pv_name>$(P):CH0:FBR_MEAN_100MS</pv_name>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH0:FBR_MEAN_100MS (CH0_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH0:MEAN_WIN_100MS points of
+$(P):CH0:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH0:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch0Label</name>
+      <text>CH0</text>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch1</name>
+      <pv_name>$(P):CH1:FBR_MEAN_100MS</pv_name>
+      <x>90</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH1:FBR_MEAN_100MS (CH1_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH1:MEAN_WIN_100MS points of
+$(P):CH1:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH1:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch1Label</name>
+      <text>CH1</text>
+      <x>90</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch2</name>
+      <pv_name>$(P):CH2:FBR_MEAN_100MS</pv_name>
+      <x>180</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH2:FBR_MEAN_100MS (CH2_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH2:MEAN_WIN_100MS points of
+$(P):CH2:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH2:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch2Label</name>
+      <text>CH2</text>
+      <x>180</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch3</name>
+      <pv_name>$(P):CH3:FBR_MEAN_100MS</pv_name>
+      <x>270</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH3:FBR_MEAN_100MS (CH3_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH3:MEAN_WIN_100MS points of
+$(P):CH3:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH3:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch3Label</name>
+      <text>CH3</text>
+      <x>270</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch4</name>
+      <pv_name>$(P):CH4:FBR_MEAN_100MS</pv_name>
+      <x>360</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH4:FBR_MEAN_100MS (CH4_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH4:MEAN_WIN_100MS points of
+$(P):CH4:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH4:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch4Label</name>
+      <text>CH4</text>
+      <x>360</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>M100Ch5</name>
+      <pv_name>$(P):CH5:FBR_MEAN_100MS</pv_name>
+      <x>450</x>
+      <width>85</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH5:FBR_MEAN_100MS (CH5_FBR_MEAN_100MS)
+
+Mean of the newest $(P):CH5:MEAN_WIN_100MS points of
+$(P):CH5:FBR_RT_100MS_3000DP.
+
+Unit cnt/100ms: the averaged points are bucket sums, so the result is
+counts per bucket and is directly comparable with that waveform and
+with $(P):CH5:FBR_ILK_TH_100MS. While the ring holds fewer points
+than the window, this is the mean of all points available.
+Updated at about 10 Hz.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Ch5Label</name>
+      <text>CH5</text>
+      <x>450</x>
+      <y>32</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win0</name>
+      <pv_name>$(P):CH0:MEAN_WIN_100MS</pv_name>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH0:MEAN_WIN_100MS (MEAN_WIN_CH0_100MS)
+
+How many of the newest points of $(P):CH0:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win0Label</name>
+      <text>Window</text>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win1</name>
+      <pv_name>$(P):CH1:MEAN_WIN_100MS</pv_name>
+      <x>90</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH1:MEAN_WIN_100MS (MEAN_WIN_CH1_100MS)
+
+How many of the newest points of $(P):CH1:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win1Label</name>
+      <text>Window</text>
+      <x>90</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win2</name>
+      <pv_name>$(P):CH2:MEAN_WIN_100MS</pv_name>
+      <x>180</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH2:MEAN_WIN_100MS (MEAN_WIN_CH2_100MS)
+
+How many of the newest points of $(P):CH2:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win2Label</name>
+      <text>Window</text>
+      <x>180</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win3</name>
+      <pv_name>$(P):CH3:MEAN_WIN_100MS</pv_name>
+      <x>270</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH3:MEAN_WIN_100MS (MEAN_WIN_CH3_100MS)
+
+How many of the newest points of $(P):CH3:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win3Label</name>
+      <text>Window</text>
+      <x>270</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win4</name>
+      <pv_name>$(P):CH4:MEAN_WIN_100MS</pv_name>
+      <x>360</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH4:MEAN_WIN_100MS (MEAN_WIN_CH4_100MS)
+
+How many of the newest points of $(P):CH4:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win4Label</name>
+      <text>Window</text>
+      <x>360</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>M100Win5</name>
+      <pv_name>$(P):CH5:MEAN_WIN_100MS</pv_name>
+      <x>450</x>
+      <y>60</y>
+      <width>85</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <tooltip>$(P):CH5:MEAN_WIN_100MS (MEAN_WIN_CH5_100MS)
+
+How many of the newest points of $(P):CH5:FBR_RT_100MS_3000DP
+that channel's FBR_MEAN_100MS averages. Range 1..1000, default 100;
+every channel has its own length.
+
+At 100 ms per point, 100 points is 0.1 s of data and 1000 points is 1 s.
+Autosaved, and applied to the very next publication (about 10 Hz).
+The record limits the value with DRVL/DRVH and the driver clamps
+it again.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>M100Win5Label</name>
+      <text>Window</text>
+      <x>450</x>
+      <y>92</y>
+      <width>85</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Plot channel</name>
+    <x>680</x>
+    <y>52</y>
+    <width>520</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH0</text>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>1</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH1</text>
+      <x>80</x>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>2</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH2</text>
+      <x>160</x>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>3</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH3</text>
+      <x>240</x>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>4</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH4</text>
+      <x>320</x>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>PCh5</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>5</CH>
+            <SCALE>$(SCALE)</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>CH5</text>
+      <x>400</x>
+      <width>78</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page for the selected channel. Only the plot and the two
+readouts below it follow the channel; the three groups on the left show
+every channel's mean and its own window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Plot scale</name>
+    <x>680</x>
+    <y>140</y>
+    <width>490</width>
+    <height>78</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="action_button" version="3.0.0">
+      <name>Sc0</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>1MS</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>1 ms</text>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page with $(SCALE) set to 1MS, so the plot traces
+$(P):CH$(CH):FBR_RT_1MS_3000DP and the two readouts below it report the
+1 ms mean and the 1 ms window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Sc1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>10MS</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>10 ms</text>
+      <x>110</x>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page with $(SCALE) set to 10MS, so the plot traces
+$(P):CH$(CH):FBR_RT_10MS_3000DP and the two readouts below it report the
+10 ms mean and the 10 ms window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Sc2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>$(CH)</CH>
+            <SCALE>100MS</SCALE>
+          </macros>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>100 ms</text>
+      <x>220</x>
+      <width>105</width>
+      <height>32</height>
+      <tooltip>$(actions)
+
+Reopens this page with $(SCALE) set to 100MS, so the plot traces
+$(P):CH$(CH):FBR_RT_100MS_3000DP and the two readouts below it report the
+100 ms mean and the 100 ms window length.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Selected channel</name>
+    <x>680</x>
+    <y>228</y>
+    <width>490</width>
+    <height>90</height>
+    <font>
+      <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <widget type="textupdate" version="2.0.0">
+      <name>SelMean</name>
+      <pv_name>$(P):CH$(CH):FBR_MEAN_$(SCALE)</pv_name>
+      <width>140</width>
+      <height>32</height>
+      <format>3</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH$(CH):FBR_MEAN_$(SCALE)
+
+Mean of the newest points of the plotted waveform, however many this
+channel's window selects, in counts per bucket. Same value as the matching
+cell of the three groups on the left, repeated here so the curve and the
+number being checked sit together.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SelMeanLabel</name>
+      <text>Selected mean</text>
+      <y>32</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SelWin</name>
+      <pv_name>$(P):CH$(CH):MEAN_WIN_$(SCALE)</pv_name>
+      <x>150</x>
+      <width>140</width>
+      <height>32</height>
+      <format>1</format>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <tooltip>$(P):CH$(CH):MEAN_WIN_$(SCALE)
+(MEAN_WIN_CH$(CH)_$(SCALE))
+
+Window length the plotted channel uses on the plotted scale, read back
+from its setpoint record. Edit it with the entry under that channel in
+the group for that scale on the left.</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SelWinLabel</name>
+      <text>Selected window</text>
+      <x>150</x>
+      <y>32</y>
+      <width>140</width>
+      <height>22</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>FbrRt</name>
+    <x>15</x>
+    <y>485</y>
+    <width>1150</width>
+    <height>390</height>
+    <title>FBR realtime CH$(CH) $(SCALE)</title>
+    <show_toolbar>true</show_toolbar>
+    <tooltip>$(P):CH$(CH):FBR_RT_$(SCALE)_3000DP
+
+The 3000 newest buckets of one channel at one time scale, the same ring snapshot
+the FBR_MEAN_$(SCALE) scalar is averaged over. The newest point is at the right
+hand end, so the window whose mean is displayed is that channel's trailing
+MEAN_WIN_$(SCALE) points of this edge.</tooltip>
+    <x_axis>
+      <title>X</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Y</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>FBR</name>
+        <x_pv></x_pv>
+        <y_pv>$(P):CH$(CH):FBR_RT_$(SCALE)_3000DP</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Copyright</name>
+    <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
+    <x>60</x>
+    <y>860</y>
+    <width>600</width>
+    <height>18</height>
+    <foreground_color>
+      <color red="100" green="100" blue="100">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>

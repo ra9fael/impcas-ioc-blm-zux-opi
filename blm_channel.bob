@@ -6,8 +6,8 @@
   <widget type="label" version="2.0.0">
     <name>Title</name>
     <text>Channel $(CH)</text>
-    <x>10</x>
-    <y>8</y>
+    <x>5</x>
+    <y>2</y>
     <width>150</width>
     <height>25</height>
     <font>
@@ -21,7 +21,7 @@
     <pv_name>$(P):CH$(CH):ADC_100MS</pv_name>
     <x>10</x>
     <y>48</y>
-    <width>190</width>
+    <width>130</width>
     <height>28</height>
     <format>3</format>
     <precision>6</precision>
@@ -31,30 +31,58 @@
   <widget type="textupdate" version="2.0.0">
     <name>FBR</name>
     <pv_name>$(P):CH$(CH):FBR_CNT_100MS</pv_name>
-    <x>220</x>
+    <x>155</x>
     <y>48</y>
-    <width>190</width>
+    <width>130</width>
     <height>28</height>
     <format>3</format>
     <precision>6</precision>
     <horizontal_alignment>1</horizontal_alignment>
     <vertical_alignment>1</vertical_alignment>
   </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Dose</name>
+    <pv_name>$(P):CH$(CH):DOSE</pv_name>
+    <x>300</x>
+    <y>48</y>
+    <width>130</width>
+    <height>28</height>
+    <format>3</format>
+    <precision>3</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <tooltip>$(P):CH$(CH):DOSE (CH$(CH)_DOSE)
+
+Dose rate of channel $(CH) in uSv/h, computed by the driver as
+K * FBR_CNT_100MS + B and published at the 10 Hz OPI cadence. Read-only; the
+K/B coefficients are edited on the channel detail page and persisted through
+$(P):DOSE_CALI:SAVE/RLD.</tooltip>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
   <widget type="label" version="2.0.0">
     <name>ADCLabel</name>
     <text>ADC 100 ms</text>
     <x>10</x>
     <y>80</y>
-    <width>190</width>
+    <width>130</width>
     <height>22</height>
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="label" version="2.0.0">
     <name>FBRLabel</name>
     <text>FBR 100 ms</text>
-    <x>220</x>
+    <x>155</x>
     <y>80</y>
-    <width>190</width>
+    <width>130</width>
+    <height>22</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>DoseLabel</name>
+    <text>Dose (uSv/h)</text>
+    <x>300</x>
+    <y>80</y>
+    <width>130</width>
     <height>22</height>
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
@@ -80,8 +108,8 @@
   <widget type="byte_monitor" version="2.0.0">
     <name>ADCILKStatus</name>
     <pv_name>$(P):CH$(CH):ADC_ILK_STAT</pv_name>
-    <x>180</x>
-    <y>8</y>
+    <x>120</x>
+    <y>20</y>
     <width>24</width>
     <height>24</height>
     <numBits>1</numBits>
@@ -93,8 +121,8 @@
   <widget type="byte_monitor" version="2.0.0">
     <name>FBRILKStatus</name>
     <pv_name>$(P):CH$(CH):FBR_ILK_STAT</pv_name>
-    <x>220</x>
-    <y>8</y>
+    <x>265</x>
+    <y>20</y>
     <width>24</width>
     <height>24</height>
     <numBits>1</numBits>

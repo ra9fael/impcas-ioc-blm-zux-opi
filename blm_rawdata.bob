@@ -65,10 +65,17 @@ Written to the FPGA immediately on selection.</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <tooltip>$(P):RAW:SELF_TRIG_TH (RAW_SELF_TRIG_TH)
 
-Signal level the self trigger compares against, in calibrated units. The value
-is converted back to raw ADC counts with the inverse calibration of the
-selected self-trigger channel before it is written to the FPGA, so it stays
-valid after recalibration. Only used when Trigger mode is Self.</tooltip>
+Signal level the self trigger compares against, in mV. The value is converted
+back to raw ADC counts with the inverse calibration of the selected
+self-trigger channel before it is written to the FPGA, so it stays valid after
+recalibration, and changing the channel re-applies it. Only used when Trigger
+mode is Self.
+
+A negative level is sent as the two's-complement count, the same encoding the
+ADC data itself carries; the FPGA compares that count signed, so a negative
+level means what it says. The register is write-only, so to see exactly what was
+sent read 'FPGA misc_ctrl.self_trigger_threshold=&lt;count&gt; (0x...) from
+CH&lt;n&gt; level=&lt;mV&gt; mV' in the DEBUG log.</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="combo" version="2.0.0">

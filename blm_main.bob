@@ -5,7 +5,7 @@
     <P>$(P)</P>
   </macros>
   <width>1400</width>
-  <height>1160</height>
+  <height>1350</height>
   <widget type="label" version="2.0.0">
     <name>Title</name>
     <text>Beam Loss Monitor: $(P)</text>
@@ -38,7 +38,7 @@
         </action>
       </actions>
       <text>Interlock</text>
-      <width>105</width>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
@@ -52,8 +52,8 @@
         </action>
       </actions>
       <text>Realtime</text>
-      <x>115</x>
-      <width>105</width>
+      <x>102</x>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
@@ -67,8 +67,8 @@
         </action>
       </actions>
       <text>Rawdata</text>
-      <x>230</x>
-      <width>105</width>
+      <x>202</x>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
@@ -82,8 +82,8 @@
         </action>
       </actions>
       <text>Thresholds</text>
-      <x>345</x>
-      <width>110</width>
+      <x>302</x>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
@@ -97,8 +97,8 @@
         </action>
       </actions>
       <text>Calibration</text>
-      <x>472</x>
-      <width>105</width>
+      <x>402</x>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
@@ -112,9 +112,33 @@
         </action>
       </actions>
       <text>System</text>
-      <x>592</x>
-      <width>105</width>
+      <x>502</x>
+      <width>90</width>
       <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>FBRMeans</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>blm_fbr_mean.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CH>0</CH>
+            <SCALE>100MS</SCALE>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>FBR means</text>
+      <x>602</x>
+      <width>90</width>
+      <tooltip>$(actions)
+
+Test page for the FBR trailing window means: the six channel means of each of the
+three time scales, each channel's MEAN_WIN window length, and the waveform
+one of those means is computed from.</tooltip>
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
   </widget>
@@ -215,7 +239,7 @@
     <x>20</x>
     <y>630</y>
     <width>1360</width>
-    <height>510</height>
+    <height>700</height>
     <resize>true</resize>
     <border_width>1</border_width>
   </widget>
@@ -223,13 +247,9 @@
     <name>Copyright</name>
     <text>(C) 2026 IMPCAS | Beam Feedback Group | Ren Fei</text>
     <x>20</x>
-    <y>1140</y>
+    <y>1330</y>
     <width>600</width>
     <height>18</height>
-    <font>
-      <font name="Default" family="Liberation Sans" style="REGULAR" size="12.0">
-      </font>
-    </font>
     <foreground_color>
       <color red="100" green="100" blue="100">
       </color>

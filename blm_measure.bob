@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
   <name>BLM Measure</name>
-  <width>620</width>
+  <width>630</width>
   <height>186</height>
   <widget type="group" version="3.0.0">
     <name>Measure</name>
     <y>1</y>
-    <width>620</width>
+    <width>630</width>
     <height>184</height>
     <font>
       <font name="Header 3" family="Liberation Sans" style="BOLD" size="16.0">
